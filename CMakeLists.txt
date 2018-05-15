@@ -12,10 +12,11 @@ macro(build_libyaml)
 
   list(APPEND extra_cmake_args -DBUILD_SHARED_LIBS=ON)
   list(APPEND extra_cmake_args -DBUILD_TESTING=OFF)
-
-  if(MSVC)
-    list(APPEND extra_cmake_args "-DCMAKE_C_FLAGS=/wd4244 /wd4267 /wd4996")
+  # Disable MSVC warnings
+  if(CMAKE_C_COMPILER_ID MATCHES "MSVC")
+    list(APPEND extra_cmake_args -DCMAKE_C_FLAGS:STRING=${CMAKE_C_FLAGS} /wd4244 /wd4267 /wd4996)
   endif()
+
   include(ExternalProject)
   ExternalProject_Add(libyaml-10c9078
     URL https://github.com/yaml/libyaml/archive/10c907871f1ccd779c7fccf6b81a62762b5c4e7b.zip

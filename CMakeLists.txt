@@ -14,7 +14,8 @@ macro(build_libyaml)
   list(APPEND extra_cmake_args -DBUILD_TESTING=OFF)
   # Disable MSVC warnings
   if(CMAKE_C_COMPILER_ID MATCHES "MSVC")
-    list(APPEND extra_cmake_args -DCMAKE_C_FLAGS:STRING=${CMAKE_C_FLAGS} /wd4244 /wd4267 /wd4996)
+    set(win_c_flags "${CMAKE_C_FLAGS} /wd4244 /wd4267 /wd4996")
+    list(APPEND extra_cmake_args -DCMAKE_C_FLAGS=${win_c_flags})
   endif()
 
   include(ExternalProject)

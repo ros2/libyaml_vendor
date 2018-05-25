@@ -34,6 +34,7 @@ macro(build_libyaml)
       ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/
     DESTINATION
       ${CMAKE_INSTALL_PREFIX}
+    PATTERN config.h EXCLUDE
   )
 endmacro()
 

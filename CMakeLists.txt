@@ -66,4 +66,6 @@ endmacro()
 
 build_libyaml()
 
+ament_export_libraries(libyaml)
+
 ament_package()

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(libyaml_vendor VERSION 1.0.0)
+project(libyaml_vendor)
 
 find_package(ament_cmake REQUIRED)
 

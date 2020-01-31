@@ -45,7 +45,7 @@ macro(build_libyaml)
     endif()
   endif()
   include(ExternalProject)
-  ExternalProject_Add(libyaml-10c9078
+  externalproject_add(libyaml-10c9078
     URL https://github.com/yaml/libyaml/archive/10c907871f1ccd779c7fccf6b81a62762b5c4e7b.zip
     URL_MD5 b595f0ab0735c04c7f6ed0a798a3eff7
     TIMEOUT 60
@@ -67,5 +67,10 @@ endmacro()
 build_libyaml()
 
 ament_export_libraries(yaml)
+
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  ament_lint_auto_find_test_dependencies()
+endif()
 
 ament_package()

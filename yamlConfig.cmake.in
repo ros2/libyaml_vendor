@@ -1,12 +1,12 @@
 # prevent multiple inclusion
-if(_@YAML_NAME@_CONFIG_INCLUDED)
+if(_yaml_CONFIG_INCLUDED)
   return()
 endif()
-set(_@YAML_NAME@_CONFIG_INCLUDED TRUE)
+set(_yaml_CONFIG_INCLUDED TRUE)
 
 # output package information
-if(NOT @YAML_NAME@_FIND_QUIETLY)
-  message(STATUS "Found @YAML_NAME@: @PACKAGE_VERSION@ (${@YAML_NAME@_DIR})")
+if(NOT yaml_FIND_QUIETLY)
+  message(STATUS "Found yaml: @PACKAGE_VERSION@ (${yaml_DIR})")
 endif()
 
 # include all config extra files

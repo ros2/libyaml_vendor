@@ -95,8 +95,6 @@ else()
     "${PROJECT_BINARY_DIR}/libyaml_vendorConfig-version.cmake"
     COMPATIBILITY AnyNewerVersion)
 
-  set(YAML_NAME yaml)
-
   configure_file(yamlConfig.cmake.in
   "${PROJECT_BINARY_DIR}/yamlConfig.cmake" @ONLY)
 

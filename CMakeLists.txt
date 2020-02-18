@@ -13,10 +13,9 @@ if(NOT FORCE_BUILD_VENDOR_PKG)
   endif()
 endif()
 
+find_package(ament_cmake REQUIRED)
 
 if(NOT yaml_FOUND)
-
-  find_package(ament_cmake REQUIRED)
 
   macro(build_libyaml)
     set(extra_cmake_args)
@@ -80,14 +79,10 @@ if(NOT yaml_FOUND)
 
   build_libyaml()
 
-  ament_export_libraries(yaml)
-
   if(BUILD_TESTING)
     find_package(ament_lint_auto REQUIRED)
     ament_lint_auto_find_test_dependencies()
   endif()
-
-  ament_package()
 
 else()
   message(STATUS "Found YAML ${yaml_VERSION}")
@@ -100,6 +95,16 @@ else()
     "${PROJECT_BINARY_DIR}/libyaml_vendorConfig-version.cmake"
     COMPATIBILITY AnyNewerVersion)
 
+  set(YAML_NAME yaml)
+
+  configure_file(yamlConfig.cmake.in
+  "${PROJECT_BINARY_DIR}/yamlConfig.cmake" @ONLY)
+
+  include(CMakePackageConfigHelpers)
+  write_basic_package_version_file(
+    "${PROJECT_BINARY_DIR}/yamlConfig-version.cmake"
+    COMPATIBILITY AnyNewerVersion)
+
   install(FILES
     package.xml
     DESTINATION share/${PROJECT_NAME})
@@ -109,4 +114,13 @@ else()
     "${PROJECT_BINARY_DIR}/libyaml_vendorConfig-version.cmake"
     DESTINATION share/${PROJECT_NAME}/cmake)
 
+  install(FILES
+    "${PROJECT_BINARY_DIR}/yamlConfig.cmake"
+    "${PROJECT_BINARY_DIR}/yamlConfig-version.cmake"
+  DESTINATION cmake/)
+
 endif()
+
+ament_export_libraries(yaml)
+
+ament_package()

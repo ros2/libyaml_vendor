@@ -8,9 +8,3 @@ set(_@PROJECT_NAME@_CONFIG_INCLUDED TRUE)
 if(NOT @PROJECT_NAME@_FIND_QUIETLY)
   message(STATUS "Found @PROJECT_NAME@: @PACKAGE_VERSION@ (${@PROJECT_NAME@_DIR})")
 endif()
-
-# include all config extra files
-set(_extras "ament_cmake_export_libraries-extras.cmake")
-foreach(_extra ${_extras})
-  include("${libyaml_vendor_DIR}/${_extra}")
-endforeach()

@@ -2,11 +2,11 @@ cmake_minimum_required(VERSION 3.5)
 
 project(libyaml_vendor VERSION 1.0.0)
 
-option(FORCE_BUILD_VENDOR_PKG
+option(FORCE_BUILD_YAML_VENDOR_PKG
   "Build YAML from source, even if system-installed package is available"
   OFF)
 
-if(NOT FORCE_BUILD_VENDOR_PKG)
+if(NOT FORCE_BUILD_YAML_VENDOR_PKG)
   find_package(PkgConfig)
   if(PKG_CONFIG_FOUND)
     pkg_check_modules(yaml QUIET yaml-0.1)

@@ -53,7 +53,6 @@ macro(build_libyaml)
     TIMEOUT 60
     CMAKE_ARGS
       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/libyaml_install
-
       ${extra_cmake_args}
   )
 

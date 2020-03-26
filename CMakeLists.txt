@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.9)
 
 project(libyaml_vendor)
 
@@ -6,7 +6,9 @@ find_package(ament_cmake REQUIRED)
 
 macro(build_libyaml)
   set(extra_cmake_args)
-  if(DEFINED CMAKE_BUILD_TYPE)
+
+  get_property(multi_config GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
+  if(NOT multi_config AND DEFINED CMAKE_BUILD_TYPE)
     list(APPEND extra_cmake_args -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})
   endif()
 

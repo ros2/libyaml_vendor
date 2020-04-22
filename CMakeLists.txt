@@ -69,6 +69,7 @@ endmacro()
 build_libyaml()
 
 ament_export_libraries(yaml)
+ament_export_dependencies(yaml)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

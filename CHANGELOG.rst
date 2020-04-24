@@ -2,8 +2,8 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.1 (2020-04-24)
+------------------
 * Add missing export of yaml (`#15 <https://github.com/ros2/libyaml_vendor/issues/15>`_)
 * Only propagate CMAKE_BUILD_TYPE for single configuration generators (`#13 <https://github.com/ros2/libyaml_vendor/issues/13>`_)
 * Enable linter tests on libyaml_vendor (`#8 <https://github.com/ros2/libyaml_vendor/issues/8>`_)

@@ -16,109 +16,109 @@ To study the library as an external dependency, it might not be necessary to req
 
 Considering the previously mentioned reasons, we consider this library to be robust and reliable, and hence we declare it to qualify as a level 1 external dependency.
 
-## Comparison with ROS packages quality standards
+# Comparison with ROS packages quality standards
 
-### Version policy
+## Version policy [1]
 
-1.  *Must have a version policy*    
+### Version Scheme [1.i]
 
 It is not stated if the library supports any kind of version policy
 
-2.  *Must be at a stable version (e.g. for semver that means version >= 1.0.0)*
+### Version Stability [1.ii]
     
 Current version is 0.22
 
-3.  *Must have a strictly declared public API*
+### Public API Declaration [1.iii]
     
 As a C library, elements available in its `yaml.h` are considered to be their public API.
 
-4.  *Must have a policy for API stability*
+### API Stability Policy [1.iv]
     
 There is no policy for API stability. This is not a problem because the `libyaml_vendor` package importing the `libyaml dependency` is using a fixed version, in this case, the [0.18](https://github.com/yaml/libyaml/tree/release-0.1.8)
 
-5.  *Must have a policy for ABI stability*
+### ABI Stability Policy [1.v]
     
 There is no policy for ABI stability. This is not a problem because the `libyaml_vendor` package importing the `libyaml` dependency is using a fixed version, in this case, the [0.18](https://github.com/yaml/libyaml/tree/release-0.1.8)
 
-6.  *Must have a policy that keeps API and ABI stability within a released ROS distribution*
+### ABI and ABI Stability Within a Released ROS Distribution [1.vi]
     
 There is not a direct correlation between the `libyaml` releases and the ROS distributions, however this is not a problem because the `libyaml_vendor` package importing the `libyaml` dependency is using a fixed version, in this case, the [0.18](https://github.com/yaml/libyaml/tree/release-0.1.8)
 
 
-### Change Control Process
+## Change Control Process [2]
 
-7.  *Must have all code changes occur through a change request (e.g. pull request, merge request, etc.)*
+### Change Requests [2.i]
     
 Checking through the commits history, it can be seen is not the case.
 
-8.  *Must have confirmation of contributor origin (e.g. [DCO](https://developercertificate.org/), CLA, etc.)*
+### Contributor Origin [2.ii]
     
 Does not have it (or it does not seem like it’s the case)
 
-9.  *Must have peer review policy for all change requests (e.g. require one or more reviewers)*
+### Peer Review Policy [2.iii]
     
 Seems to be followed for pull requests on the github repository, but as not all code changes occur through change requests, this can not be confirmed for these changes.
 
-10.  *Must have Continuous Integration (CI) policy for all change requests*    
-
+### Continuous Integration [2.iv]
 If any, it not publicly available
 
-11.  *Must have documentation policy for all change requests*
-    
+### Documentation Policy [2.v]
 Not available
 
-### Documentation
+## Documentation [3]
 
-12.  *Must have documentation for each "feature" (e.g. for rclcpp: create a node, publish a message, spin, etc.)*
+### Feature Documentation [3.i]
     
 Provided [doxygen documentation](https://github.com/yaml/libyaml/tree/master/doc) for the whole project. It is not provided as a document, it has to be built separately when downloading.
 
-13.  *Must have documentation for each item in the public API (e.g. functions, classes, etc.)*
+### Public API Documentation [3.ii]
     
 Yes, doxygen documentation is available for library .h headers.
 
-14.  *Must have a declared license or set of licenses*
+### License [3.iii]
     
 MIT license declared for the repository, it can be found [here](https://github.com/yaml/libyaml/blob/master/LICENSE).
 
-15.  *Must have a copyright statement in each source file*
+### Copyright Statements [3.iv]
     
 Is not available
- 
-16.  *Must have a "quality declaration" document, which declares the quality level and justifies how the package meets each of the requirements*
-    
+
+### Quality Declaration [3.v]
 This document represents the Quality Declaration document for the `libyaml` ROS dependency.
 
-### Testing
+## Testing [4]
 
-17.  *Must have system tests which cover all items in the "feature" documentation*
+### Feature Testing [4.i]
     
 Tests provided to cover the expected usage of the library, for the version of the library used can be found [here](https://github.com/yaml/libyaml/tree/release-0.1.8/tests).
 
-18.  *Must have system, integration, and/or unit tests which cover all of the public API*
+### Public API Testing [4.ii]
    
 Not clear without coverage results to check if all the API is covered
 
-19.  *Must have code coverage, and a policy for changes*
+### Coverage [4.iii]
 
  Code coverage and internal policies are not public, if any
 
-20.  *Performance tests, and performance regression policy*
+### Performance [4.iv]
     
 Performance tests, and performance regression policy are not public, if any
 
-21.  *Linters and Static Analysis*
+### Linters and Static Analysis [4.v]
     
 Not available publicly, if any
 
-### Dependencies
+## Dependencies [5]
 
-22.  *Must not have direct runtime "ROS" dependencies which are not at the same level as the package in question ('Level N'), but…*
+### Direct Runtime ROS Dependencies [5.i]
     
 The `libyaml` library does not add additional dependencies, it only requires C++ standard libraries to be built and used.
 
-### Platform Support:
+### Optional Direct Runtime ROS Dependencies [5.ii]
+Does not apply for external dependencies.
 
-23.  *Must support all tier 1 platforms for ROS 2, as defined in [REP-2000](https://www.ros.org/reps/rep-2000.html#support-tiers)*
-    
-Does not define support for any specific platform.
+### Direct Runtime non-ROS Dependency [5.iii]
+This library does not have external dependencies.
+
+## Platform Support [6]
+This library does not state support for any specific platform.

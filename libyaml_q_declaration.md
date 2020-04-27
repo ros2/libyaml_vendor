@@ -11,7 +11,7 @@ The `libyaml` meets the basic requirements for a software platform in terms of t
 
 Even if the library does not provide an API/ABI policy targeting the desired use of the library, the fact that it deals with the YAML standard and this one hasn’t changed since 2009, allows us to infer that the functionality needed for the ROS core from this library is not going to be changed.
 
-There is no explicit support for any OS platform, however their [Github repository](https://github.com/yaml/libyaml) installation appears to be targeting Linux. The first version of this library was developed in 2006, and it is used widely. There is no explicit metric of how much the library is used, but the equivalent library for python, developed by the same organization is required for at least 150k repositories (According to [Github metrics](https://github.com/yaml/pyyaml/network/dependents?package_id=UGFja2FnZS01MjUyMjEzNQ%3D%3D)) and the `libyaml` library is used for some optional fast functionality. The [safe_yaml](https://rubygems.org/gems/safe_yaml) ruby gem has over 80million downloads and one of its implementations uses `libyaml` through psych. There are various big projects leveraging functionality from the `libyaml` library.
+There is no explicit support for any OS platform, however their [Github repository](https://github.com/yaml/libyaml) installation appears to be targeting Linux. The first version of this library was developed in 2006, and it is used widely. There is no explicit metric of how much the library is used, but the equivalent library for python, developed by the same organization is required for at least 150k repositories (According to [Github metrics](https://github.com/yaml/pyyaml/network/dependents?package_id=UGFja2FnZS01MjUyMjEzNQ%3D%3D)) and the `libyaml` library is used for some optional fast functionality. The [safe_yaml](https://rubygems.org/gems/safe_yaml) ruby gem has over 80million downloads and one of its implementations uses `libyaml` through psych. It is also used in the [Go-yaml project](https://github.com/go-yaml/yaml), the project supporting Yaml in the Go language.
 
 To study the library as an external dependency, it might not be necessary to require high code coverage, but to check if the used parts in the ROS packages are tested, and this is the case for this library.
 
@@ -119,15 +119,12 @@ Not available publicly, if any.
 The `libyaml` library does not add additional dependencies, it only requires C++ standard libraries to be built and used.
 
 ### Optional Direct Runtime ROS Dependencies [5.ii]
-
 Does not apply for external dependencies.
 
 ### Direct Runtime non-ROS Dependency [5.iii]
-
 This library does not have external dependencies.
 
 ## Platform Support [6]
-
 This library does not state support for any specific platform.
 
 ## Vulnerability Disclosure Policy [7.i]

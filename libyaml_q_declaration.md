@@ -1,3 +1,4 @@
+
 # External Dependency Quality declaration libyaml
 
 This document is a declaration of software quality for the `libyaml` external dependency, based on the guidelines in [REP-2004](https://github.com/ros-infrastructure/rep/blob/rep-2004/rep-2004.rst).
@@ -6,7 +7,7 @@ The [libyaml](https://github.com/yaml/libyaml) external dependency is a C librar
 
 ## Summary
 
-The `libyaml` meets the basic requirements for a software platform in terms of testing its basic functionality, providing a valid license for the code used and a public github repository with the changes made to the code over time.
+The `libyaml` meets the basic requirements for a software platform in terms of testing its basic functionality, providing a valid license for the code used and a public Github repository with the changes made to the code over time.
 
 Even if the library does not provide an API/ABI policy targeting the desired use of the library, the fact that it deals with the YAML standard and this one hasn’t changed since 2009, allows us to infer that the functionality needed for the ROS core from this library is not going to be changed.
 
@@ -22,7 +23,7 @@ Considering the previously mentioned reasons, we consider this library to be rob
 
 ### Version Scheme [1.i]
 
-It is not stated if the library supports any kind of version policy
+It is not stated if the library supports any kind of version policy.
 
 ### Version Stability [1.ii]
     
@@ -53,17 +54,19 @@ Checking through the commits history, it can be seen is not the case.
 
 ### Contributor Origin [2.ii]
     
-Does not have it (or it does not seem like it’s the case)
+Does not have it (or it does not seem like it’s the case).
 
 ### Peer Review Policy [2.iii]
     
-Seems to be followed for pull requests on the github repository, but as not all code changes occur through change requests, this can not be confirmed for these changes.
+Seems to be followed for pull requests on the Github repository, but as not all code changes occur through change requests, this can not be confirmed for these changes.
 
 ### Continuous Integration [2.iv]
-If any, it not publicly available
+
+If any, it not publicly available.
 
 ### Documentation Policy [2.v]
-Not available
+
+Not available.
 
 ## Documentation [3]
 
@@ -81,9 +84,10 @@ MIT license declared for the repository, it can be found [here](https://github.c
 
 ### Copyright Statements [3.iv]
     
-Is not available
+Is not available.
 
 ### Quality Declaration [3.v]
+
 This document represents the Quality Declaration document for the `libyaml` ROS dependency.
 
 ## Testing [4]
@@ -94,19 +98,19 @@ Tests provided to cover the expected usage of the library, for the version of th
 
 ### Public API Testing [4.ii]
    
-Not clear without coverage results to check if all the API is covered
+Not clear without coverage results to check if all the API is covered.
 
 ### Coverage [4.iii]
 
- Code coverage and internal policies are not public, if any
+Code coverage and internal policies are not public, if any.
 
 ### Performance [4.iv]
     
-Performance tests, and performance regression policy are not public, if any
+Performance tests, and performance regression policy are not public, if any.
 
 ### Linters and Static Analysis [4.v]
     
-Not available publicly, if any
+Not available publicly, if any.
 
 ## Dependencies [5]
 
@@ -122,3 +126,7 @@ This library does not have external dependencies.
 
 ## Platform Support [6]
 This library does not state support for any specific platform.
+
+## Vulnerability Disclosure Policy [7.i]
+
+This package does not yet have a Vulnerability Disclosure Policy

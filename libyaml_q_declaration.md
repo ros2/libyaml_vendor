@@ -27,7 +27,7 @@ It is not stated if the library supports any kind of version policy.
 
 ### Version Stability [1.ii]
     
-Current version is 0.22
+Current version of `libyaml` in [its repository](https://github.com/yaml/libyaml) is  0.24, however, for the purposes of ROS2 Quality Level analysis, the imported version of `libyaml` through the `libyaml_vendor` package is fixed to the 0.18 version.
 
 ### Public API Declaration [1.iii]
     

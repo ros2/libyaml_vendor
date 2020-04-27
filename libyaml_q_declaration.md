@@ -119,12 +119,15 @@ Not available publicly, if any.
 The `libyaml` library does not add additional dependencies, it only requires C++ standard libraries to be built and used.
 
 ### Optional Direct Runtime ROS Dependencies [5.ii]
+
 Does not apply for external dependencies.
 
 ### Direct Runtime non-ROS Dependency [5.iii]
+
 This library does not have external dependencies.
 
 ## Platform Support [6]
+
 This library does not state support for any specific platform.
 
 ## Vulnerability Disclosure Policy [7.i]

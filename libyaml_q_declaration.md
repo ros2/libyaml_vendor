@@ -13,8 +13,6 @@ Even if the library does not provide an API/ABI policy targeting the desired use
 
 There is no explicit support for any OS platform, however their [Github repository](https://github.com/yaml/libyaml) installation appears to be targeting Linux. The first version of this library was developed in 2006, and it is used widely. There is no explicit metric of how much the library is used, but the equivalent library for python, developed by the same organization is required for at least 150k repositories (According to [Github metrics](https://github.com/yaml/pyyaml/network/dependents?package_id=UGFja2FnZS01MjUyMjEzNQ%3D%3D)) and the `libyaml` library is used for some optional fast functionality. The [safe_yaml](https://rubygems.org/gems/safe_yaml) ruby gem has over 80million downloads and one of its implementations uses `libyaml` through psych. It is also used in the [Go-yaml project](https://github.com/go-yaml/yaml), the project supporting Yaml in the Go language.
 
-To study the library as an external dependency, it might not be necessary to require high code coverage, but to check if the used parts in the ROS packages are tested, and this is the case for this library.
-
 Considering the previously mentioned reasons, we consider this library to be robust and reliable, and hence we declare it to qualify as a level 1 external dependency.
 
 # Comparison with ROS packages quality standards

@@ -1,4 +1,5 @@
 
+
 # External Dependency Quality declaration libyaml
 
 This document is a declaration of software quality for the `libyaml` external dependency, based on the guidelines in [REP-2004](https://github.com/ros-infrastructure/rep/blob/rep-2004/rep-2004.rst).
@@ -14,6 +15,10 @@ Even if the library does not provide an API/ABI policy targeting the desired use
 There is no explicit support for any OS platform, however their [Github repository](https://github.com/yaml/libyaml) installation appears to be targeting Linux. The first version of this library was developed in 2006, and it is used widely. There is no explicit metric of how much the library is used, but the equivalent library for python, developed by the same organization is required for at least 150k repositories (According to [Github metrics](https://github.com/yaml/pyyaml/network/dependents?package_id=UGFja2FnZS01MjUyMjEzNQ%3D%3D)) and the `libyaml` library is used for some optional fast functionality. The [safe_yaml](https://rubygems.org/gems/safe_yaml) ruby gem has over 80million downloads and one of its implementations uses `libyaml` through psych. It is also used in the [Go-yaml project](https://github.com/go-yaml/yaml), the project supporting Yaml in the Go language.
 
 Considering the previously mentioned reasons, we consider this library to be robust and reliable. In terms of ROS2 package metrics to be Quality Level 4.
+
+Even though `libyaml` by itself will not likely reach the equivalent level of quality as Quality Level 1, there are steps that can be taken by ROS contributors to ensure that its incorporation into ROS packages can provide the equivalent level of quality.
+
+ROS contributors will need to conduct coverage tests to identify the remaining API and features that are not currently covered by tests. If features and portions of the public API that are used in ROS dependencies are found to be untested, then the appropriate tests will be required. Including specific tests for the `libyaml` version imported by `libyaml_vendor` for the tier 1 platforms listed in [REP-2000](https://www.ros.org/reps/rep-2000.html#support-tiers).
 
 # Comparison with ROS packages quality standards
 

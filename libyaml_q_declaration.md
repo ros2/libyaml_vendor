@@ -131,5 +131,4 @@ This library does not state support for any specific platform.
 
 ### Vulnerability Disclosure Policy [7.i]
 
-
-This package does not yet have a Vulnerability Disclosure Policy
+This package does not yet have a Vulnerability Disclosure Policy.

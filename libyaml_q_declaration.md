@@ -127,6 +127,9 @@ This library does not have external dependencies.
 ## Platform Support [6]
 This library does not state support for any specific platform.
 
-## Vulnerability Disclosure Policy [7.i]
+## Security [7]
+
+### Vulnerability Disclosure Policy [7.i]
+
 
 This package does not yet have a Vulnerability Disclosure Policy

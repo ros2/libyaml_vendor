@@ -2,6 +2,13 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.2 (2020-05-07)
+------------------
+* Quality declaration for external dependency libyaml (`#14 <https://github.com/ros2/libyaml_vendor/issues/14>`_)
+* Add missing Contributing.md file (`#17 <https://github.com/ros2/libyaml_vendor/issues/17>`_)
+* Export modern CMake interface target (`#16 <https://github.com/ros2/libyaml_vendor/issues/16>`_)
+* Contributors: Dirk Thomas, Jorge Perez
+
 1.0.1 (2020-04-24)
 ------------------
 * Add missing export of yaml (`#15 <https://github.com/ros2/libyaml_vendor/issues/15>`_)

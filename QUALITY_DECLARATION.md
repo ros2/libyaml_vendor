@@ -155,7 +155,6 @@ The chart below compares the requirements in the REP-2004 with the current state
 
 Comparing this table with the [Quality Level Comparison Chart of REP2004](https://github.com/ros-infrastructure/rep/blob/master/rep-2004.rst#quality-level-comparison-chart) lead us to decide that this package qualifies to Quality Level 4.
 
-To reach Quality level 3, adding a Vulnerability Disclosure will be needed.
-To reach Quality level 2, adding features documentation will be needed.
+To reach Quality level 2, adding a Vulnerability Disclosure will be needed.
 
-non-ROS dependencies Quality level will need to be adjusted accordignly to be equal or below to claims made in this Quality Declaration.
+`libyaml_vendor` is limited by the quality level of the upstream dependency spdlog. In order to reach higher quality levels, the issues limiting `libyaml` will either need to be addressed by `libyaml` itself, or through adequate quality control measures in this package.

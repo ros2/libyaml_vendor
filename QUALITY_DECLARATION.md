@@ -20,17 +20,13 @@ Below are the rationales, notes, and caveats for this claim, organized by each r
 
 This is a vendor package for `libyaml` and as such does not declare its own API.
 
-### API Stability Policy [1.iv]
+### API Stability Policy [1.iv]/[1.vi]
 
 `libyaml_vendor` does not have an API of its own, and will limit its dependency on `libyaml` to API stable releases within a released ROS distribution.
 
-### ABI Stability Policy [1.v]
+### ABI Stability Policy [1.v]/[1.vi]
 
 `libyaml_vendor` does not have an ABI of its own, and will limit its dependency on `libyaml` to ABI stable releases within a released ROS distribution.
-
-### ABI and ABI Stability Within a Released ROS Distribution [1.vi]
-
-As `libyaml_vendor` does not come with its own API/ABI, changes will not affect API/ABI stability.
 
 ## Change Control Process [2]
 
@@ -62,7 +58,7 @@ All pull requests must resolve related documentation changes before merging.
 
 ### Feature Documentation [3.i]
 
-`libyaml_vendor` does not currently document its features.
+`libyaml_vendor` does not have features other than importing the external dependency `libyaml` and therefore does not require feature documentation.
 
 ### Public API Documentation [3.ii]
 
@@ -70,7 +66,7 @@ All pull requests must resolve related documentation changes before merging.
 
 ### License [3.iii]
 
-The license for `libyaml_vendor` is Apache 2.0, and a summary is in each source file, the type is declared in the `package.xml` manifest file, and a full copy of the license is in the `LICENSE` file. The vendored library, `libyaml` license is MIT as stated in its quality declaration document (Section 5.iii).
+The license for `libyaml_vendor` is Apache 2.0, and a summary is in each source file, the type is declared in the [`package.xml`](package.xml) manifest file, and a full copy of the license is in the [`LICENSE`](LICENSE) file. The vendored library, `libyaml` license is MIT as stated in its [quality declaration](libyaml_q_declaration.md) document (Section 5.iii).
 
 There is an automated test which runs a linter that ensures each file has a license statement. [Here](https://ci.ros2.org/view/nightly/job/nightly_linux-aarch64_release/lastBuild/testReport/libyaml_vendor/) can be found a list with the latest results of the various linters being run on the package.
 
@@ -82,21 +78,7 @@ There is an automated test which runs a linter that ensures each file has at lea
 
 ## Testing [4]
 
-### Feature Testing [4.i]
-
-`libyaml_vendor` does not have feature testing. For vendored packages, this will be considered to be addressed in the external dependency.
-
-### Public API Testing [4.ii]
-
-`libyaml_vendor` does not have Public API testing. For vendored packages, this will be considered to be addressed in the external dependency.
-
-### Coverage [4.iii]
-
-`libyaml_vendor` does not provide coverage testing. For vendored packages, this will be considered to be addressed in the external dependency.
-
-### Performance [4.iv]
-
-`libyaml_vendor` does not provide performance testing. For vendored packages, this will be considered to be addressed in the external dependency.
+`libyaml_vendor` is a package providing solely CMake files and therefore does not require API or feature tests and has no coverage or performance requirements (sections [4.i - 4.iv]).
 
 ### Linters and Static Analysis [4.v]
 

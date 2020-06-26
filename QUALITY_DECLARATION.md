@@ -18,7 +18,7 @@ Below are the rationales, notes, and caveats for this claim, organized by each r
 
 ### Public API Declaration [1.iii]
 
-This is a vendor package for `libyaml` and as such does not declare its own API.
+  This is a vendor package for `libyaml` and as such does not declare its own API.
 
 ### API Stability Policy [1.iv]/[1.vi]
 
@@ -98,7 +98,7 @@ Currently nightly test results can be seen here:
 
 ### Direct Runtime non-ROS Dependency [5.iii]
 
-`libyaml_vendor` depends directly on the external dependency `libyaml`, which is qualified as quality level 3 in its [Quality Declaration](./libyaml_Q_DECLARATION.md).
+`libyaml_vendor` depends directly on the external dependency `libyaml`, which is qualified as quality level 3 in its [Quality Declaration](./libyaml_q_declaration.md).
 
 ## Platform Support [6]
 

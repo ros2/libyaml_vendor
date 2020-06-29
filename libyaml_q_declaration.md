@@ -3,7 +3,7 @@
 This document is a declaration of software quality for the `libyaml` external dependency, based on the guidelines in [REP-2004](https://github.com/ros-infrastructure/rep/blob/rep-2004/rep-2004.rst).
 
 The [libyaml](https://github.com/yaml/libyaml) external dependency is a C library for parsing and emitting YAML.
-Maintained in the YAML Project Github organization together with other 115 repositories.
+Maintained in the YAML Project Github organization together with 115 other repositories.
 First, a summary discussing how this library is qualified is presented, and then it will be listed how this library matches the standards defined for ROS packages.
 
 ## Summary
@@ -16,7 +16,7 @@ There is no explicit support for any OS platform, however their [Github reposito
 The first version of this library was developed in 2006, and it is used widely.
 There is no explicit metric of how much the library is used, but the equivalent library for Python, developed by the same organization is required for at least 150k repositories (According to [Github metrics](https://github.com/yaml/pyyaml/network/dependents?package_id=UGFja2FnZS01MjUyMjEzNQ%3D%3D)).
 `libyaml` library is used for some optional fast functionality.
-The [safe_yaml](https://rubygems.org/gems/safe_yaml) ruby gem has over 80million downloads and one of its implementations uses `libyaml` through psych.
+The [safe_yaml](https://rubygems.org/gems/safe_yaml) ruby gem has over 80 million downloads and one of its implementations uses `libyaml` through psych.
 It is also used in the [Go-yaml project](https://github.com/go-yaml/yaml), the project supporting YAML in the Go language.
 
 Considering the previously mentioned reasons, we consider this library to be robust and reliable. In terms of ROS2 package metrics to be Quality Level 3.

@@ -3,7 +3,7 @@
 This document is a declaration of software quality for the `libyaml` external dependency, based on the guidelines in [REP-2004](https://github.com/ros-infrastructure/rep/blob/rep-2004/rep-2004.rst).
 
 The [libyaml](https://github.com/yaml/libyaml) external dependency is a C library for parsing and emitting YAML.
-Maintained in the YAML Project Github organization together with 115 other repositories.
+It is maintained in the YAML Project Github organization together with 115 other repositories.
 First, a summary discussing how this library is qualified is presented, and then it will be listed how this library matches the standards defined for ROS packages.
 
 ## Summary

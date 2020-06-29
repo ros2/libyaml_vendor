@@ -18,7 +18,7 @@ Below are the rationales, notes, and caveats for this claim, organized by each r
 
 ### Public API Declaration [1.iii]
 
-  This is a vendor package for `libyaml` and as such does not declare its own API.
+This is a vendor package for `libyaml` and as such does not declare its own API.
 
 ### API Stability Policy [1.iv]/[1.vi]
 

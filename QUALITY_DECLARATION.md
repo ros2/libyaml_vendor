@@ -1,8 +1,8 @@
 This document is a declaration of software quality for the `libyaml_vendor` package, based on the guidelines in [REP-2004](https://github.com/ros-infrastructure/rep/blob/rep-2004/rep-2004.rst).
 
-# `libyaml_vendor` Quality Declaration
+# libyaml_vendor Quality Declaration
 
-The package `libyaml_vendor` claims to be in the **Quality Level 4** category.
+The package `libyaml_vendor` claims to be in the **Quality Level 3** category.
 
 Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Quality Categories in REP-2004](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#package-quality-categories) of the ROS2 developer guide.
 
@@ -98,7 +98,7 @@ Currently nightly test results can be seen here:
 
 ### Direct Runtime non-ROS Dependency [5.iii]
 
-`libyaml_vendor` depends directly on the external dependency `libyaml`, which is qualified as quality level 4 in its [Quality Declaration](./libyaml_Q_DECLARATION.md).
+`libyaml_vendor` depends directly on the external dependency `libyaml`, which is qualified as quality level 3 in its [Quality Declaration](./libyaml_q_declaration.md).
 
 ## Platform Support [6]
 
@@ -151,10 +151,8 @@ The chart below compares the requirements in the REP-2004 with the current state
 |6| Platform support | --- |
 |6.i| Support targets Tier1 ROS platforms| ✓ |
 |7| Security | --- |
-|7.i| Vulnerability Disclosure Policy | ☓ |
+|7.i| Vulnerability Disclosure Policy | ✓ |
 
-Comparing this table with the [Quality Level Comparison Chart of REP2004](https://github.com/ros-infrastructure/rep/blob/master/rep-2004.rst#quality-level-comparison-chart) lead us to decide that this package qualifies to Quality Level 4.
+Comparing this table with the [Quality Level Comparison Chart of REP2004](https://github.com/ros-infrastructure/rep/blob/master/rep-2004.rst#quality-level-comparison-chart) lead us to decide that this package qualifies to Quality Level 3.
 
-To reach Quality level 2, adding a Vulnerability Disclosure will be needed.
-
-`libyaml_vendor` is limited by the quality level of the upstream dependency spdlog. In order to reach higher quality levels, the issues limiting `libyaml` will either need to be addressed by `libyaml` itself, or through adequate quality control measures in this package.
+`libyaml_vendor` is limited by the quality level of the upstream dependency libyaml. In order to reach higher quality levels, the issues limiting `libyaml` will either need to be addressed by `libyaml` itself, or through adequate quality control measures in this package.

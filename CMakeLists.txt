@@ -5,6 +5,7 @@ project(libyaml_vendor)
 find_package(ament_cmake REQUIRED)
 
 macro(build_libyaml)
+  include(GNUInstallDirs)
   set(extra_cmake_args)
 
   get_property(multi_config GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
@@ -14,6 +15,7 @@ macro(build_libyaml)
 
   list(APPEND extra_cmake_args -DBUILD_SHARED_LIBS=ON)
   list(APPEND extra_cmake_args -DBUILD_TESTING=OFF)
+  list(APPEND extra_cmake_args -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS})
   # Disable MSVC warnings
   if(CMAKE_C_COMPILER_ID MATCHES "MSVC")
     set(win_c_flags "${CMAKE_C_FLAGS} /wd4244 /wd4267 /wd4996")
@@ -47,6 +49,7 @@ macro(build_libyaml)
     endif()
   endif()
   include(ExternalProject)
+  set(extra_test_dependencies libyaml-10c9078)
   externalproject_add(libyaml-10c9078
     URL https://github.com/yaml/libyaml/archive/10c907871f1ccd779c7fccf6b81a62762b5c4e7b.zip
     URL_MD5 b595f0ab0735c04c7f6ed0a798a3eff7
@@ -64,6 +67,10 @@ macro(build_libyaml)
       ${CMAKE_INSTALL_PREFIX}
     PATTERN config.h EXCLUDE
   )
+
+  set(yaml_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/${CMAKE_INSTALL_INCLUDEDIR})
+  set(yaml_LIBRARY_DIRS ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/${CMAKE_INSTALL_LIBDIR})
+  set(yaml_LIBRARIES yaml)
 endmacro()
 
 build_libyaml()
@@ -74,6 +81,24 @@ ament_export_dependencies(yaml)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
+
+  find_package(performance_test_fixture REQUIRED)
+  # Give cppcheck hints about macro definitions coming from outside this package
+  get_target_property(ament_cmake_cppcheck_ADDITIONAL_INCLUDE_DIRS
+    performance_test_fixture::performance_test_fixture INTERFACE_INCLUDE_DIRECTORIES)
+
+  find_package(rcpputils REQUIRED)
+
+  add_performance_test(benchmark_reader test/benchmark/benchmark_reader.cpp
+    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
+
+  ament_target_dependencies(benchmark_reader rcpputils)
+  if(TARGET benchmark_reader)
+    target_include_directories(benchmark_reader PRIVATE ${yaml_INCLUDE_DIRS})
+    target_link_libraries(benchmark_reader ${yaml_LIBRARIES})
+    target_link_directories(benchmark_reader PRIVATE ${yaml_LIBRARY_DIRS})
+    add_dependencies(benchmark_reader ${extra_test_dependencies})
+  endif()
 endif()
 
 ament_package(CONFIG_EXTRAS libyaml_vendor-extras.cmake)

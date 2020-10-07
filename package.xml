@@ -8,11 +8,12 @@
   <description>
     Wrapper around libyaml, provides the last version (1.8.0 rc) that ships with a CMake module
   </description>
-  <maintainer email="mikael@osrfoundation.org">Mikael Arguedas</maintainer>
+  <maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
   <license>Apache License 2.0</license>  <!-- the contents of this package are Apache 2.0 -->
   <license>MIT</license>  <!-- libyaml is MIT -->
 
   <url type="website">https://github.com/yaml/libyaml</url>
+  <author email="mikael@osrfoundation.org">Mikael Arguedas</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

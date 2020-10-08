@@ -13,7 +13,7 @@
   <license>MIT</license>  <!-- libyaml is MIT -->
 
   <url type="website">https://github.com/yaml/libyaml</url>
-  <author email="mikael@osrfoundation.org">Mikael Arguedas</author>
+  <author>Mikael Arguedas</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

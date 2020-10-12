@@ -74,7 +74,6 @@ macro(build_libyaml)
   if(BUILD_TESTING)
     find_package(ament_cmake_gtest REQUIRED)
     find_package(rcpputils REQUIRED)
-    find_package(rcutils REQUIRED)
     find_package(performance_test_fixture REQUIRED)
     # Give cppcheck hints about macro definitions coming from outside this package
     get_target_property(ament_cmake_cppcheck_ADDITIONAL_INCLUDE_DIRS
@@ -84,7 +83,7 @@ macro(build_libyaml)
         WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
     target_link_libraries(test_yaml_reader ${yaml_LIBRARIES})
     target_include_directories(test_yaml_reader PRIVATE ${yaml_INCLUDE_DIRS})
-    ament_target_dependencies(test_yaml_reader rcpputils rcutils)
+    ament_target_dependencies(test_yaml_reader rcpputils)
 
     add_performance_test(benchmark_reader test/benchmark/benchmark_reader.cpp
       WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")

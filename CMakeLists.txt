@@ -71,6 +71,32 @@ macro(build_libyaml)
   set(yaml_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/${CMAKE_INSTALL_INCLUDEDIR})
   set(yaml_LIBRARY_DIRS ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/${CMAKE_INSTALL_LIBDIR})
   set(yaml_LIBRARIES yaml)
+  if(BUILD_TESTING)
+    find_package(ament_cmake_gtest REQUIRED)
+    find_package(rcpputils REQUIRED)
+    find_package(rcutils REQUIRED)
+    find_package(performance_test_fixture REQUIRED)
+    # Give cppcheck hints about macro definitions coming from outside this package
+    get_target_property(ament_cmake_cppcheck_ADDITIONAL_INCLUDE_DIRS
+      performance_test_fixture::performance_test_fixture INTERFACE_INCLUDE_DIRECTORIES)
+
+    ament_add_gtest(test_yaml_reader test/test_reader.cpp
+        WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
+    target_link_libraries(test_yaml_reader ${yaml_LIBRARIES})
+    target_include_directories(test_yaml_reader PRIVATE ${yaml_INCLUDE_DIRS})
+    ament_target_dependencies(test_yaml_reader rcpputils rcutils)
+
+    add_performance_test(benchmark_reader test/benchmark/benchmark_reader.cpp
+      WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
+
+    ament_target_dependencies(benchmark_reader rcpputils)
+    if(TARGET benchmark_reader)
+      target_include_directories(benchmark_reader PRIVATE ${yaml_INCLUDE_DIRS})
+      target_link_libraries(benchmark_reader ${yaml_LIBRARIES})
+      target_link_directories(benchmark_reader PRIVATE ${yaml_LIBRARY_DIRS})
+      add_dependencies(benchmark_reader ${extra_test_dependencies})
+    endif()
+  endif()
 endmacro()
 
 build_libyaml()
@@ -82,23 +108,6 @@ if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
 
-  find_package(performance_test_fixture REQUIRED)
-  # Give cppcheck hints about macro definitions coming from outside this package
-  get_target_property(ament_cmake_cppcheck_ADDITIONAL_INCLUDE_DIRS
-    performance_test_fixture::performance_test_fixture INTERFACE_INCLUDE_DIRECTORIES)
-
-  find_package(rcpputils REQUIRED)
-
-  add_performance_test(benchmark_reader test/benchmark/benchmark_reader.cpp
-    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
-
-  ament_target_dependencies(benchmark_reader rcpputils)
-  if(TARGET benchmark_reader)
-    target_include_directories(benchmark_reader PRIVATE ${yaml_INCLUDE_DIRS})
-    target_link_libraries(benchmark_reader ${yaml_LIBRARIES})
-    target_link_directories(benchmark_reader PRIVATE ${yaml_LIBRARY_DIRS})
-    add_dependencies(benchmark_reader ${extra_test_dependencies})
-  endif()
 endif()
 
 ament_package(CONFIG_EXTRAS libyaml_vendor-extras.cmake)

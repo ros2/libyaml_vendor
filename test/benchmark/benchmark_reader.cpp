@@ -15,10 +15,8 @@
 #include <yaml.h>
 
 YAML_DECLARE(int)
-yaml_parser_update_buffer(yaml_parser_t *parser, size_t length);
+yaml_parser_update_buffer(yaml_parser_t * parser, size_t length);
 
-#include <fstream>
-#include <sstream>
 #include <string>
 
 #include "rcpputils/filesystem_helper.hpp"
@@ -42,12 +40,12 @@ BENCHMARK_F(PerformanceTest, yaml_parser_set_input_string)(benchmark::State & st
   const char * utf8_sequences = "Hi is \xd0\x9f\xd1\x80\xd0\xb8\xd0\xb2\xd0\xb5\xd1\x82!";
   const char * start = utf8_sequences;
   const char * end = start;
-  while (*end != '!') end++;
+  while (*end != '!') {end++;}
   int check = 13;
   reset_heap_counters();
   for (auto _ : st) {
     yaml_parser_initialize(&parser);
-    yaml_parser_set_input_string(&parser, (unsigned char *)start, end-start);
+    yaml_parser_set_input_string(&parser, (unsigned char *)start, end - start);
     yaml_parser_delete(&parser);
   }
 }
@@ -61,14 +59,14 @@ BENCHMARK_F(PerformanceTest, yaml_parser_set_input_file)(benchmark::State & st)
   FILE * pFile;
   reset_heap_counters();
   for (auto _ : st) {
-    pFile = fopen (path.c_str(), "r");
+    pFile = fopen(path.c_str(), "r");
     if (NULL == pFile) {
       st.SkipWithError("Error openning the file");
     }
     yaml_parser_initialize(&parser);
     yaml_parser_set_input_file(&parser, pFile);
     yaml_parser_delete(&parser);
-    fclose (pFile);
+    fclose(pFile);
   }
 }
 
@@ -82,7 +80,7 @@ BENCHMARK_F(PerformanceTest, yaml_parser_set_input_file_event)(benchmark::State 
   yaml_event_t event;
   reset_heap_counters();
   for (auto _ : st) {
-    pFile = fopen (path.c_str(), "r");
+    pFile = fopen(path.c_str(), "r");
     if (NULL == pFile) {
       st.SkipWithError("Error openning the file");
     }
@@ -91,6 +89,6 @@ BENCHMARK_F(PerformanceTest, yaml_parser_set_input_file_event)(benchmark::State 
     yaml_parser_parse(&parser, &event);
     yaml_event_delete(&event);
     yaml_parser_delete(&parser);
-    fclose (pFile);
+    fclose(pFile);
   }
 }

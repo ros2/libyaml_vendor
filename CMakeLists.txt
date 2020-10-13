@@ -83,6 +83,7 @@ macro(build_libyaml)
         WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
     target_link_libraries(test_yaml_reader ${yaml_LIBRARIES})
     target_include_directories(test_yaml_reader PRIVATE ${yaml_INCLUDE_DIRS})
+    target_link_directories(test_yaml_reader PRIVATE ${yaml_LIBRARY_DIRS})
     ament_target_dependencies(test_yaml_reader rcpputils)
 
     add_performance_test(benchmark_reader test/benchmark/benchmark_reader.cpp

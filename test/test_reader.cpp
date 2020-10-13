@@ -51,7 +51,6 @@ TEST(test_libyaml, yaml_read_file_fails)
 
   EXPECT_DEATH_IF_SUPPORTED(yaml_parser_initialize(nullptr), "");
 
-  EXPECT_DEATH_IF_SUPPORTED(yaml_parser_set_input_file(&parser, pFile), "");
   EXPECT_DEATH_IF_SUPPORTED(yaml_parser_parse(&parser, nullptr), "");
   EXPECT_DEATH_IF_SUPPORTED(yaml_parser_parse(nullptr, &event), "");
 

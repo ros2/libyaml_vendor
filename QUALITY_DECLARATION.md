@@ -2,7 +2,7 @@ This document is a declaration of software quality for the `libyaml_vendor` pack
 
 # libyaml_vendor Quality Declaration
 
-The package `libyaml_vendor` claims to be in the **Quality Level 3** category.
+The package `libyaml_vendor` claims to be in the **Quality Level 1** category.
 
 Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Quality Categories in REP-2004](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#package-quality-categories) of the ROS2 developer guide.
 
@@ -80,11 +80,28 @@ There is an automated test which runs a linter that ensures each file has at lea
 
 `libyaml_vendor` is a package providing solely CMake files and therefore does not require API or feature tests and has no coverage or performance requirements (sections [4.i - 4.iv]).
 
+### Feature Testing [4.i]
+
+As we mentioned in the Quality Declaration of `libyaml`, ROS 2 only uses the API for reading YAML files. This will be the only `libyaml` API tested in the ROS 2 buildfarm.
+
+### Public API Testing [4.ii]
+
+As we mentioned in the Quality Declaration of `libyaml`, ROS 2 only uses the API for reading YAML files. This will be the only `libyaml` API tested in the ROS 2 buildfarm.
+
+### Coverage [4.iii]
+
+Lastest code coverage can be found [here](https://ci.ros2.org/job/ci_linux_coverage/lastSuccessfulBuild/cobertura/).
+
+### Performance [4.iv]
+
+The `libyaml` package is benchmarked and the most recent test results can be found [here](http://build.ros2.org/view/Rci/job/Rci__benchmark_ubuntu_focal_amd64/BenchmarkTable/).
+
 ### Linters and Static Analysis [4.v]
 
 `libyaml_vendor` uses and passes all the ROS2 standard linters and static analysis tools as described in the [ROS 2 Developer Guide](https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#linters-and-static-analysis). Passing implies there are no linter/static errors when testing against CI of supported platforms.
 
 Currently nightly test results can be seen here:
+
 * [linux-aarch64_release](https://ci.ros2.org/view/nightly/job/nightly_linux-aarch64_release/lastBuild/testReport/libyaml_vendor/)
 * [linux_release](https://ci.ros2.org/view/nightly/job/nightly_linux_release/lastBuild/testReport/libyaml_vendor/)
 * [mac_osx_release](https://ci.ros2.org/view/nightly/job/nightly_osx_release/lastBuild/testReport/libyaml_vendor/)
@@ -153,6 +170,4 @@ The chart below compares the requirements in the REP-2004 with the current state
 |7| Security | --- |
 |7.i| Vulnerability Disclosure Policy | ✓ |
 
-Comparing this table with the [Quality Level Comparison Chart of REP2004](https://github.com/ros-infrastructure/rep/blob/master/rep-2004.rst#quality-level-comparison-chart) lead us to decide that this package qualifies to Quality Level 3.
-
-`libyaml_vendor` is limited by the quality level of the upstream dependency libyaml. In order to reach higher quality levels, the issues limiting `libyaml` will either need to be addressed by `libyaml` itself, or through adequate quality control measures in this package.
+Comparing this table with the [Quality Level Comparison Chart of REP2004](https://github.com/ros-infrastructure/rep/blob/master/rep-2004.rst#quality-level-comparison-chart) lead us to decide that this package qualifies as Quality Level 1.

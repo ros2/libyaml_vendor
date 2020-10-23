@@ -19,7 +19,7 @@ There is no explicit metric of how much the library is used, but the equivalent 
 The [safe_yaml](https://rubygems.org/gems/safe_yaml) ruby gem has over 80 million downloads and one of its implementations uses `libyaml` through psych.
 It is also used in the [Go-yaml project](https://github.com/go-yaml/yaml), the project supporting YAML in the Go language.
 
-ROS 2 uses this library to load parameters from a file when the arguments are properly used. There are no official tests or code coverage information about this library, but in this case we are only interested in the portion of public API that read YAML files and we will cover these
+ROS 2 uses this library to load parameters from a file when the arguments are properly used. There are no official tests or code coverage information about this library, but in this case we are only interested in the portion of public API that reads YAML files and we will cover these
 tests and coverage in the vendored package. Including specific tests for the `libyaml` version imported by `libyaml_vendor` for the tier 1 platforms listed in [REP-2000](https://www.ros.org/reps/rep-2000.html#support-tiers).
 
 Considering the previously mentioned reasons, we consider this library to be robust and reliable and at Quality Level 1.
@@ -43,7 +43,7 @@ As a C library, elements available in [yaml.h](https://github.com/yaml/libyaml/b
 
 ### API Stability Policy [1.iv]
 
-There is no policy for API stability. This is not a problem because the `libyaml_vendor` package importing the `libyaml dependency` is using a fixed version, in this case, the [0.18](https://github.com/yaml/libyaml/tree/release-0.1.8).
+There is no policy for API stability. This is not a problem because the `libyaml_vendor` package importing the `libyaml` dependency is using a fixed version, in this case, the [0.18](https://github.com/yaml/libyaml/tree/release-0.1.8).
 
 ### ABI Stability Policy [1.v]
 
@@ -69,7 +69,7 @@ Seems to be followed for pull requests on the Github repository, but as not all 
 
 ### Continuous Integration [2.iv]
 
-`libyaml` is compiled in the ROS 2 buildfarm for on all [tier 1 platforms](https://www.ros.org/reps/rep-2000.html#support-tiers).
+`libyaml` is compiled in the ROS 2 buildfarm for all [tier 1 platforms](https://www.ros.org/reps/rep-2000.html#support-tiers).
 
 Currently nightly results can be seen here:
 * [linux-aarch64_release](https://ci.ros2.org/view/nightly/job/nightly_linux-aarch64_release/lastBuild/testReport/libyaml_vendor/)
@@ -89,7 +89,7 @@ Provided [doxygen documentation](https://github.com/yaml/libyaml/tree/master/doc
 
 ### Public API Documentation [3.ii]
 
-Yes, doxygen documentation is available for library [.h headers]([yaml.h](https://github.com/yaml/libyaml/blob/master/include/).
+Yes, doxygen documentation is available for library [here](https://libyaml.docsforge.com/master/).
 
 ### License [3.iii]
 
@@ -153,4 +153,4 @@ Currently nightly results can be seen here:
 
 ### Vulnerability Disclosure Policy [7.i]
 
-This package does not yet have a Vulnerability Disclosure Policy. But it's defined in the vendored Quality Declaration.
+The `libyaml` library does not have a Vulnerability Disclosure Policy. But for ROS 2's purposes, see the policy defined in the Quality Declaration of the `libyaml_vendor` package.

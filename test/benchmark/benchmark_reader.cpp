@@ -14,9 +14,6 @@
 
 #include <yaml.h>
 
-YAML_DECLARE(int)
-yaml_parser_update_buffer(yaml_parser_t * parser, size_t length);
-
 #include <string>
 
 #include "rcpputils/filesystem_helper.hpp"

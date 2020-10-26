@@ -38,7 +38,6 @@ BENCHMARK_F(PerformanceTest, yaml_parser_set_input_string)(benchmark::State & st
   const char * start = utf8_sequences;
   const char * end = start;
   while (*end != '!') {end++;}
-  int check = 13;
   reset_heap_counters();
   for (auto _ : st) {
     yaml_parser_initialize(&parser);

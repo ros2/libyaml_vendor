@@ -17,7 +17,6 @@ endif()
 find_package(ament_cmake REQUIRED)
 
 macro(build_libyaml)
-  include(GNUInstallDirs)
   set(extra_cmake_args)
 
   get_property(multi_config GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
@@ -79,8 +78,8 @@ macro(build_libyaml)
     PATTERN config.h EXCLUDE
   )
 
-  set(yaml_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/${CMAKE_INSTALL_INCLUDEDIR})
-  set(yaml_LIBRARY_DIRS ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/${CMAKE_INSTALL_LIBDIR})
+  set(yaml_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/include)
+  set(yaml_LIBRARY_DIRS ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/lib)
   set(yaml_LIBRARIES yaml)
 endmacro()
 
@@ -120,7 +119,6 @@ if(BUILD_TESTING)
     target_include_directories(benchmark_reader PRIVATE ${yaml_INCLUDE_DIRS})
     target_link_libraries(benchmark_reader ${yaml_LIBRARIES})
     target_link_directories(benchmark_reader PRIVATE ${yaml_LIBRARY_DIRS})
-    add_dependencies(benchmark_reader ${extra_test_dependencies})
     if(extra_test_dependencies)
       add_dependencies(benchmark_reader ${extra_test_dependencies})
     endif()

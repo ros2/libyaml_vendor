@@ -38,7 +38,6 @@ BENCHMARK_F(PerformanceTest, yaml_parser_set_input_string)(benchmark::State & st
   const char * start = utf8_sequences;
   const char * end = start;
   while (*end != '!') {end++;}
-  reset_heap_counters();
   for (auto _ : st) {
     yaml_parser_initialize(&parser);
     yaml_parser_set_input_string(&parser, (unsigned char *)start, end - start);
@@ -57,7 +56,7 @@ BENCHMARK_F(PerformanceTest, yaml_parser_set_input_file)(benchmark::State & st)
   for (auto _ : st) {
     pFile = fopen(path.c_str(), "r");
     if (NULL == pFile) {
-      st.SkipWithError("Error openning the file");
+      st.SkipWithError("Error opening the file");
     }
     yaml_parser_initialize(&parser);
     yaml_parser_set_input_file(&parser, pFile);
@@ -78,7 +77,7 @@ BENCHMARK_F(PerformanceTest, yaml_parser_set_input_file_event)(benchmark::State 
   for (auto _ : st) {
     pFile = fopen(path.c_str(), "r");
     if (NULL == pFile) {
-      st.SkipWithError("Error openning the file");
+      st.SkipWithError("Error opening the file");
     }
     yaml_parser_initialize(&parser);
     yaml_parser_set_input_file(&parser, pFile);

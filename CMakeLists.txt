@@ -2,6 +2,18 @@ cmake_minimum_required(VERSION 3.9)
 
 project(libyaml_vendor)
 
+# Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  # About -Wno-sign-conversion: With Clang, -Wconversion implies -Wsign-conversion. There are a number of
+  # implicit sign conversions in rclcpp and gtest.cc, see https://ci.ros2.org/job/ci_osx/9265/.
+  # Hence disabling -Wsign-conversion for now until all those have eventually been fixed.
+  # (from https://github.com/ros2/rclcpp/pull/1188#issuecomment-650229140)
+  add_compile_options(-Wall -Wextra -Wconversion -Wno-sign-conversion -Wpedantic -Wnon-virtual-dtor -Woverloaded-virtual)
+endif()
+
 find_package(ament_cmake REQUIRED)
 
 macro(build_libyaml)
@@ -14,6 +26,7 @@ macro(build_libyaml)
 
   list(APPEND extra_cmake_args -DBUILD_SHARED_LIBS=ON)
   list(APPEND extra_cmake_args -DBUILD_TESTING=OFF)
+  list(APPEND extra_cmake_args -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS})
   # Disable MSVC warnings
   if(CMAKE_C_COMPILER_ID MATCHES "MSVC")
     set(win_c_flags "${CMAKE_C_FLAGS} /wd4244 /wd4267 /wd4996")
@@ -64,9 +77,14 @@ macro(build_libyaml)
       ${CMAKE_INSTALL_PREFIX}
     PATTERN config.h EXCLUDE
   )
+
+  set(yaml_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/include)
+  set(yaml_LIBRARY_DIRS ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/lib)
+  set(yaml_LIBRARIES yaml)
 endmacro()
 
 build_libyaml()
+set(extra_test_dependencies libyaml-10c9078)
 
 ament_export_libraries(yaml)
 ament_export_dependencies(yaml)
@@ -74,6 +92,37 @@ ament_export_dependencies(yaml)
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
+
+  find_package(ament_cmake_gtest REQUIRED)
+  find_package(rcpputils REQUIRED)
+  find_package(performance_test_fixture REQUIRED)
+  # Give cppcheck hints about macro definitions coming from outside this package
+  get_target_property(ament_cmake_cppcheck_ADDITIONAL_INCLUDE_DIRS
+    performance_test_fixture::performance_test_fixture INTERFACE_INCLUDE_DIRECTORIES)
+
+  ament_add_gtest(test_yaml_reader test/test_reader.cpp
+      WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
+  if(TARGET test_yaml_reader)
+    target_include_directories(test_yaml_reader PRIVATE ${yaml_INCLUDE_DIRS})
+    target_link_libraries(test_yaml_reader ${yaml_LIBRARIES})
+    target_link_directories(test_yaml_reader PRIVATE ${yaml_LIBRARY_DIRS})
+    ament_target_dependencies(test_yaml_reader rcpputils)
+    if(extra_test_dependencies)
+      add_dependencies(test_yaml_reader ${extra_test_dependencies})
+    endif()
+  endif()
+
+  add_performance_test(benchmark_reader test/benchmark/benchmark_reader.cpp
+    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
+  ament_target_dependencies(benchmark_reader rcpputils)
+  if(TARGET benchmark_reader)
+    target_include_directories(benchmark_reader PRIVATE ${yaml_INCLUDE_DIRS})
+    target_link_libraries(benchmark_reader ${yaml_LIBRARIES})
+    target_link_directories(benchmark_reader PRIVATE ${yaml_LIBRARY_DIRS})
+    if(extra_test_dependencies)
+      add_dependencies(benchmark_reader ${extra_test_dependencies})
+    endif()
+  endif()
 endif()
 
 ament_package(CONFIG_EXTRAS libyaml_vendor-extras.cmake)

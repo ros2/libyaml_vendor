@@ -61,6 +61,7 @@ BENCHMARK_F(PerformanceTest, yaml_parser_set_input_file)(benchmark::State & st)
     pFile = fopen(path.c_str(), "r");
     if (NULL == pFile) {
       st.SkipWithError("Error opening the file");
+      return;
     }
     yaml_parser_initialize(&parser);
     yaml_parser_set_input_file(&parser, pFile);
@@ -82,6 +83,7 @@ BENCHMARK_F(PerformanceTest, yaml_parser_set_input_file_event)(benchmark::State 
     pFile = fopen(path.c_str(), "r");
     if (NULL == pFile) {
       st.SkipWithError("Error opening the file");
+      return;
     }
     yaml_parser_initialize(&parser);
     yaml_parser_set_input_file(&parser, pFile);

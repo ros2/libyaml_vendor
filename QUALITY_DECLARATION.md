@@ -94,7 +94,7 @@ Lastest code coverage can be found [here](https://ci.ros2.org/job/ci_linux_cover
 
 ### Performance [4.iv]
 
-The `libyaml` package is benchmarked and the most recent test results can be found [here](http://build.ros2.org/view/Rci/job/Rci__benchmark_ubuntu_focal_amd64/BenchmarkTable/).
+The `libyaml` package is benchmarked and the most recent test results can be found [here](http://build.ros2.org/view/Fci/job/Fci__benchmark_ubuntu_focal_amd64/BenchmarkTable/).
 
 ### Linters and Static Analysis [4.v]
 

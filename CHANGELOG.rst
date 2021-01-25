@@ -2,6 +2,15 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Foxy QD point to Foxy benchmark tests (`#26 <https://github.com/ros2/libyaml_vendor/issues/26>`_)
+* Update QD (`#25 <https://github.com/ros2/libyaml_vendor/issues/25>`_)
+* Included benchmark tests (`#24 <https://github.com/ros2/libyaml_vendor/issues/24>`_)
+* Add Security Vulnerability Policy pointing to REP-2006. (`#18 <https://github.com/ros2/libyaml_vendor/issues/18>`_)
+* Add quality declaration libyaml_vendor (`#12 <https://github.com/ros2/libyaml_vendor/issues/12>`_)
+* Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jorge Perez, Louise Poubel
+
 1.0.2 (2020-05-07)
 ------------------
 * Quality declaration for external dependency libyaml (`#14 <https://github.com/ros2/libyaml_vendor/issues/14>`_)

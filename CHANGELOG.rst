@@ -2,8 +2,8 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.3 (2021-01-25)
+------------------
 * Foxy QD point to Foxy benchmark tests (`#26 <https://github.com/ros2/libyaml_vendor/issues/26>`_)
 * Update QD (`#25 <https://github.com/ros2/libyaml_vendor/issues/25>`_)
 * Included benchmark tests (`#24 <https://github.com/ros2/libyaml_vendor/issues/24>`_)

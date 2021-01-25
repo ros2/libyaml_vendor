@@ -2,8 +2,8 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.1.0 (2021-01-25)
+------------------
 * Fix target_link_directories/link_directories in cmake (`#29 <https://github.com/ros2/libyaml_vendor/issues/29>`_)
 * Included benchmark tests (`#20 <https://github.com/ros2/libyaml_vendor/issues/20>`_)
 * Update Quality Declaration (`#23 <https://github.com/ros2/libyaml_vendor/issues/23>`_)

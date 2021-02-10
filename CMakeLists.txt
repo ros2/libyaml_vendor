@@ -75,6 +75,7 @@ macro(build_libyaml)
       ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/
     DESTINATION
       ${CMAKE_INSTALL_PREFIX}
+    USE_SOURCE_PERMISSIONS
     PATTERN config.h EXCLUDE
   )
 

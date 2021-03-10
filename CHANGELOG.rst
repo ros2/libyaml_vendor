@@ -2,6 +2,12 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.1.1 (2021-03-10)
+------------------
+* Fix linker flags for tests when CMake < 3.13 (`#35 <https://github.com/ros2/libyaml_vendor/issues/35>`_)
+* Always preserve source permissions in vendor packages (`#31 <https://github.com/ros2/libyaml_vendor/issues/31>`_)
+* Contributors: Scott K Logan
+
 1.1.0 (2021-01-25)
 ------------------
 * Fix target_link_directories/link_directories in cmake (`#29 <https://github.com/ros2/libyaml_vendor/issues/29>`_)

@@ -61,10 +61,8 @@ macro(build_libyaml)
   endif()
   include(ExternalProject)
   externalproject_add(libyaml-0.2.5
-    GIT_REPOSITORY https://github.com/yaml/libyaml
-    GIT_TAG 0.2.5
-    GIT_CONFIG advice.detachedHead=false
-    UPDATE_COMMAND ""
+    URL https://github.com/yaml/libyaml/archive/refs/tags/0.2.5.zip
+    URL_MD5 2464078985a73f9d298689d36061143f
     TIMEOUT 60
     CMAKE_ARGS
       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/libyaml_install

@@ -2,6 +2,12 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* updating quality declaration links (re: `ros2/docs.ros2.org#52 <https://github.com/ros2/docs.ros2.org/issues/52>`_) (`#38 <https://github.com/ros2/libyaml_vendor/issues/38>`_)
+* Update libyaml_vendor to 0.2.5. (`#37 <https://github.com/ros2/libyaml_vendor/issues/37>`_)
+* Contributors: Chris Lalancette, shonigmann
+
 1.1.1 (2021-03-10)
 ------------------
 * Fix linker flags for tests when CMake < 3.13 (`#35 <https://github.com/ros2/libyaml_vendor/issues/35>`_)

@@ -2,6 +2,12 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.4 (2021-04-14)
+------------------
+* Update quality declaration links (re: `ros2/docs.ros2.org#52 <https://github.com/ros2/docs.ros2.org/issues/52>`_) (`#39 <https://github.com/ros2/libyaml_vendor/issues/39>`_)
+* Fix target_link_directories/link_directories in cmake (`#29 <https://github.com/ros2/libyaml_vendor/issues/29>`_) (`#32 <https://github.com/ros2/libyaml_vendor/issues/32>`_)
+* Contributors: Alejandro Hernández Cordero, Chris Lalancette, Simon Honigmann
+
 1.0.3 (2021-01-25)
 ------------------
 * Foxy QD point to Foxy benchmark tests (`#26 <https://github.com/ros2/libyaml_vendor/issues/26>`_)

@@ -24,6 +24,7 @@ macro(build_libyaml)
     list(APPEND extra_cmake_args -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})
   endif()
 
+
   list(APPEND extra_cmake_args -DBUILD_SHARED_LIBS=ON)
   list(APPEND extra_cmake_args -DBUILD_TESTING=OFF)
   list(APPEND extra_cmake_args -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS})
@@ -31,6 +32,13 @@ macro(build_libyaml)
   if(CMAKE_C_COMPILER_ID MATCHES "MSVC")
     set(win_c_flags "${CMAKE_C_FLAGS} /wd4244 /wd4267 /wd4996")
     list(APPEND extra_cmake_args -DCMAKE_C_FLAGS=${win_c_flags})
+
+    if(DEFINED CMAKE_SYSTEM_NAME)
+      list(APPEND extra_cmake_args "-DCMAKE_SYSTEM_NAME=${CMAKE_SYSTEM_NAME}")
+    endif()
+    if(DEFINED CMAKE_SYSTEM_VERSION)
+      list(APPEND extra_cmake_args "-DCMAKE_SYSTEM_VERSION=${CMAKE_SYSTEM_VERSION}")
+    endif()    
   endif()
 
   if(DEFINED CMAKE_TOOLCHAIN_FILE)

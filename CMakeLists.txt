@@ -99,7 +99,7 @@ if(yaml_FOUND)
   else()
     message(WARNING
       "A wrong version of libyaml is already present in the system: ${yaml_VERSION}."
-      "It will be ignored and the expected version will be built.")
+      "It will be ignored and the 0.2.5 version will be built.")
   endif()
 endif()
 

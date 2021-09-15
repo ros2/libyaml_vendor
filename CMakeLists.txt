@@ -93,7 +93,7 @@ macro(build_libyaml)
 endmacro()
 
 # Skip building yaml if the expected version is already present in the system
-if (yaml_FOUND)
+if(yaml_FOUND)
   if("${yaml_VERSION}" VERSION_EQUAL 0.2.5)
     set(_SKIP_YAML_BUILD 1)
   else()

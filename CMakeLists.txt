@@ -14,7 +14,16 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wconversion -Wno-sign-conversion -Wpedantic -Wnon-virtual-dtor -Woverloaded-virtual)
 endif()
 
+option(FORCE_BUILD_VENDOR_PKG
+  "Build libyaml from source, even if system-installed package is available"
+  OFF)
+
 find_package(ament_cmake REQUIRED)
+list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
+
+if(NOT FORCE_BUILD_VENDOR_PKG)
+  find_package(yaml QUIET)
+endif()
 
 macro(build_libyaml)
   set(extra_cmake_args)
@@ -99,15 +108,35 @@ macro(build_libyaml)
   set(yaml_LIBRARIES yaml)
 endmacro()
 
-build_libyaml()
-set(extra_test_dependencies libyaml-0.2.5)
+# Skip building yaml if the expected version is already present in the system
+if(yaml_FOUND)
+  if("${yaml_VERSION}" VERSION_EQUAL 0.2.5)
+    set(_SKIP_YAML_BUILD 1)
+  else()
+    message(WARNING
+      "A wrong version of libyaml is already present in the system: ${yaml_VERSION}."
+      "It will be ignored and the 0.2.5 version will be built.")
+  endif()
+endif()
 
-ament_export_libraries(yaml)
+if(NOT _SKIP_YAML_BUILD)
+  build_libyaml()
+  set(extra_test_dependencies libyaml-0.2.5)
+endif()
+
 ament_export_dependencies(yaml)
 
 if(BUILD_TESTING)
+  # We need to install a Findyaml.cmake file that does not respect
+  # ament_cmake_lint_cmake's convention/filename and package/stdargs rules
+  # See https://github.com/ros2/libyaml_vendor/pull/45#issuecomment-1087559657
+  list(APPEND AMENT_LINT_AUTO_EXCLUDE
+    ament_cmake_lint_cmake
+  )
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
+  find_package(ament_cmake_lint_cmake REQUIRED)
+  ament_lint_cmake("--filter=-convention/filename,-package/stdargs")
 
   find_package(ament_cmake_gtest REQUIRED)
   find_package(rcpputils REQUIRED)
@@ -148,5 +177,7 @@ if(BUILD_TESTING)
     endif()
   endif()
 endif()
+
+install(DIRECTORY cmake DESTINATION share/${PROJECT_NAME})
 
 ament_package(CONFIG_EXTRAS libyaml_vendor-extras.cmake)

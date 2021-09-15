@@ -97,7 +97,10 @@ if (yaml_FOUND)
   if("${yaml_VERSION}" VERSION_EQUAL 0.2.5)
     set(_SKIP_YAML_BUILD 1)
   else()
-    message(WARNING "A wrong version of libyaml is already present in the system: ${yaml_VERSION}")
+    message(WARNING
+      "A wrong version of libyaml is already present in the system: ${yaml_VERSION}."
+      "It will be ignored and the expected version will be built.")
+  endif()
 endif()
 
 if(NOT _SKIP_YAML_BUILD)

@@ -105,9 +105,8 @@ endif()
 
 if(NOT _SKIP_YAML_BUILD)
   build_libyaml()
+  set(extra_test_dependencies libyaml-0.2.5)
 endif()
-
-set(extra_test_dependencies libyaml-0.2.5)
 
 ament_export_libraries(yaml)
 ament_export_dependencies(yaml)

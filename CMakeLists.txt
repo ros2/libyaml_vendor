@@ -24,7 +24,7 @@ macro(build_libyaml)
     list(APPEND extra_cmake_args -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})
   endif()
 
-  list(APPEND extra_cmake_args -DBUILD_SHARED_LIBS=ON)
+  list(APPEND extra_cmake_args -DBUILD_SHARED_LIBS=${BUILD_SHARED_LIBS})
   list(APPEND extra_cmake_args -DBUILD_TESTING=OFF)
   list(APPEND extra_cmake_args -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS})
   # Disable MSVC warnings

@@ -87,7 +87,7 @@ macro(build_libyaml)
     PATTERN config.h EXCLUDE
   )
 
-  set(yaml_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/include)
+  set(yaml_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/include/${PROJECT_NAME})
   set(yaml_LIBRARY_DIRS ${CMAKE_CURRENT_BINARY_DIR}/libyaml_install/lib)
   set(yaml_LIBRARIES yaml)
 endmacro()

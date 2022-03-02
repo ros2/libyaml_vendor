@@ -61,12 +61,20 @@ macro(build_libyaml)
   endif()
   include(ExternalProject)
   externalproject_add(libyaml-0.2.5
-    URL https://github.com/yaml/libyaml/archive/refs/tags/0.2.5.zip
-    URL_MD5 2464078985a73f9d298689d36061143f
-    TIMEOUT 60
+    GIT_REPOSITORY https://github.com/yaml/libyaml.git
+    GIT_TAG 2c891fc7a770e8ba2fec34fc6b545c672beb37e6  # 0.2.5
+    GIT_CONFIG advice.detachedHead=false
+    # Suppress git update due to https://gitlab.kitware.com/cmake/cmake/-/issues/16419
+    # See https://github.com/ament/uncrustify_vendor/pull/22 for details
+    UPDATE_COMMAND ""
+    TIMEOUT 600
     CMAKE_ARGS
       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/libyaml_install
+      -DINSTALL_INCLUDE_DIR:STRING=include/${PROJECT_NAME}
       ${extra_cmake_args}
+    PATCH_COMMAND
+      ${CMAKE_COMMAND} -E chdir <SOURCE_DIR> git apply -p1 --ignore-space-change --whitespace=nowarn
+        ${CMAKE_CURRENT_SOURCE_DIR}/0001-Install-yaml.h-to-INSTALL_INCLUDE_DIR.patch
   )
 
   # The external project will install to the build folder, but we'll install that on make install.

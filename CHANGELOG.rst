@@ -2,6 +2,13 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.2.1 (2022-03-28)
+------------------
+* Install headers to include/${PROJECT_NAME} (`#46 <https://github.com/ros2/libyaml_vendor/issues/46>`_)
+* Merge pull request `#43 <https://github.com/ros2/libyaml_vendor/issues/43>`_ from ros2/update-maintainers
+* Update maintainers to Audrow Nash
+* Contributors: Audrow Nash, Shane Loretz
+
 1.2.0 (2021-04-06)
 ------------------
 * updating quality declaration links (re: `ros2/docs.ros2.org#52 <https://github.com/ros2/docs.ros2.org/issues/52>`_) (`#38 <https://github.com/ros2/libyaml_vendor/issues/38>`_)

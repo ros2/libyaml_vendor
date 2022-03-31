@@ -2,8 +2,8 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.2.2 (2022-03-31)
+------------------
 * Add a buildtool dependency on git. (`#48 <https://github.com/ros2/libyaml_vendor/issues/48>`_)
 * Contributors: Steven! Ragnarök
 

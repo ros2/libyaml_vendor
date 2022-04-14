@@ -40,7 +40,7 @@ macro(build_libyaml)
       list(APPEND extra_cmake_args "-DCMAKE_SYSTEM_VERSION=${CMAKE_SYSTEM_VERSION}")
     endif()
   endif()
-  
+
   if(DEFINED CMAKE_TOOLCHAIN_FILE)
     list(APPEND extra_cmake_args "-DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}")
     if(ANDROID)

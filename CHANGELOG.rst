@@ -2,6 +2,13 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Mirror rolling to master
+* Support WindowsStore builds for ROS2 (`#50 <https://github.com/ros2/libyaml_vendor/issues/50>`_)
+  * libyaml for uwp
+* Contributors: Audrow Nash, Lou Amadio
+
 1.4.0 (2022-05-04)
 ------------------
 

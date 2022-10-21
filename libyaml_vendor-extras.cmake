@@ -14,4 +14,6 @@
 
 # copied from libyaml_vendor/libyaml_vendor-extras.cmake
 
+list(INSERT CMAKE_MODULE_PATH 0 "${libyaml_vendor_DIR}/Modules")
+
 list(APPEND libyaml_vendor_TARGETS yaml)

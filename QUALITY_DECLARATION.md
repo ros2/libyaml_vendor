@@ -4,7 +4,7 @@ This document is a declaration of software quality for the `libyaml_vendor` pack
 
 The package `libyaml_vendor` claims to be in the **Quality Level 1** category.
 
-Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Quality Categories in REP-2004](https://www.ros.org/reps/rep-2004.html) of the ROS2 developer guide.
+Below are the rationales, notes, and caveats for this claim, organized by each requirement listed in the [Package Quality Categories in REP-2004](https://www.ros.org/reps/rep-2004.html) of the ROS 2 developer guide.
 
 ## Version Policy [1]
 
@@ -98,7 +98,7 @@ The `libyaml` package is benchmarked and the most recent test results can be fou
 
 ### Linters and Static Analysis [4.v]
 
-`libyaml_vendor` uses and passes all the ROS2 standard linters and static analysis tools as described in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#linters-and-static-analysis). Passing implies there are no linter/static errors when testing against CI of supported platforms.
+`libyaml_vendor` uses and passes all the ROS 2 standard linters and static analysis tools as described in the [ROS 2 Developer Guide](https://docs.ros.org/en/rolling/Contributing/Developer-Guide.html#linters-and-static-analysis). Passing implies there are no linter/static errors when testing against CI of supported platforms.
 
 Currently nightly test results can be seen here:
 

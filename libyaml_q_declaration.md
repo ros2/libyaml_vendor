@@ -10,9 +10,7 @@ First, a summary discussing how this library is qualified is presented, and then
 
 The `libyaml` meets the basic requirements for a software platform in terms of testing its basic functionality, providing a [valid license](https://github.com/yaml/libyaml/blob/master/License) for the code used and a public Github repository with the changes made to the code over time.
 
-Even though the library does not provide an API/ABI policy targeting the desired use of the library, the imported version of `libyaml` through the `libyaml_vendor` package is fixed to the 0.18 version. This will make the API/ABI stable.
-
-There is no explicit support for any OS platform, however their [Github repository](https://github.com/yaml/libyaml) installation appears to be targeting Linux.
+There is no explicit support for any OS platform, however the [Github repository](https://github.com/yaml/libyaml) installation appears to be targeting Linux.
 The first version of this library was developed in 2006, and it is used widely.
 There is no explicit metric of how much the library is used, but the equivalent library for Python, developed by the same organization is required for at least 150k repositories (According to [Github metrics](https://github.com/yaml/pyyaml/network/dependents?package_id=UGFja2FnZS01MjUyMjEzNQ%3D%3D)).
 `libyaml` library is used for some optional fast functionality.
@@ -22,7 +20,7 @@ It is also used in the [Go-yaml project](https://github.com/go-yaml/yaml), the p
 ROS 2 uses this library to load parameters from a file when the arguments are properly used. There are no official tests or code coverage information about this library, but in this case we are only interested in the portion of public API that reads YAML files and we will cover these
 tests and coverage in the vendored package. Including specific tests for the `libyaml` version imported by `libyaml_vendor` for the tier 1 platforms listed in [REP-2000](https://www.ros.org/reps/rep-2000.html#support-tiers).
 
-Considering the previously mentioned reasons, we consider this library to be robust and reliable and at Quality Level 1.
+Considering the previously mentioned reasons, we consider this library to be robust and reliable and at Quality Level 3.
 
 # Comparison with ROS packages quality standards
 
@@ -30,12 +28,13 @@ Considering the previously mentioned reasons, we consider this library to be rob
 
 ### Version Scheme [1.i]
 
-It is not stated if the library supports any kind of version policy. But the version increases with a new release. The imported version of
-`libyaml` through the `libyaml_vendor` package is fixed to the 0.18 version.
+It is not stated if the library supports any kind of version policy.
+But the version increases with a new release.
 
 ### Version Stability [1.ii]
 
-Current version of `libyaml` in [its repository](https://github.com/yaml/libyaml) is 0.24, however, for the purposes of ROS2 Quality Level analysis, the imported version of `libyaml` through the `libyaml_vendor` package is fixed to the 0.18 version.
+`libyaml` has no releases with a stable version number (>= 1.0.0).
+However, given the widespread use of the library major changes to the API seem unlikely.
 
 ### Public API Declaration [1.iii]
 
@@ -43,25 +42,28 @@ As a C library, elements available in [yaml.h](https://github.com/yaml/libyaml/b
 
 ### API Stability Policy [1.iv]
 
-There is no policy for API stability. This is not a problem because the `libyaml_vendor` package importing the `libyaml` dependency is using a fixed version, in this case, the [0.18](https://github.com/yaml/libyaml/tree/release-0.1.8).
+There is no stated policy for API stability.
+However, major changes to the API are deemed unlikely.
 
 ### ABI Stability Policy [1.v]
 
-There is no policy for ABI stability. This is not a problem because the `libyaml_vendor` package importing the `libyaml` dependency is using a fixed version, in this case, the [0.18](https://github.com/yaml/libyaml/tree/release-0.1.8).
+There is no stated policy for ABI stability.
 
-### ABI and ABI Stability Within a Released ROS Distribution [1.vi]
+### API and ABI Stability Within a Released ROS Distribution [1.vi]
 
-There is not a direct correlation between the `libyaml` releases and the ROS distributions, however this is not a problem because the `libyaml_vendor` package importing the `libyaml` dependency is using a fixed version, in this case, the [0.18](https://github.com/yaml/libyaml/tree/release-0.1.8)
+Each ROS distribution uses a specific version of `libyaml`, either via the operating system or through this vendor package.
+ROS distributions target specific operating systems at release time, and are maintained on those operating systems throughout their lifetime.
+Thus, API and ABI should remain stable throughout the lifetime of a particular ROS distribution.
 
 ## Change Control Process [2]
 
 ### Change Requests [2.i]
 
-Checking through the commits history, it can be seen is not the case.
+Looking throug the commits history, it can be seen that not all changes occur through a change request.
 
 ### Contributor Origin [2.ii]
 
-Does not have it (or it does not seem like it’s the case).
+It does not seem like `libyaml` has a policy for Contributor Origin.
 
 ### Peer Review Policy [2.iii]
 
@@ -85,7 +87,8 @@ Not available.
 
 ### Feature Documentation [3.i]
 
-Provided [doxygen documentation](https://github.com/yaml/libyaml/tree/master/doc) for the whole project. It is not provided as a document, it has to be built separately when downloading.
+Provided [doxygen documentation](https://github.com/yaml/libyaml/tree/master/doc) for the whole project.
+It is not provided as a document, it has to be built separately when downloading.
 
 ### Public API Documentation [3.ii]
 
@@ -153,4 +156,5 @@ Currently nightly results can be seen here:
 
 ### Vulnerability Disclosure Policy [7.i]
 
-The `libyaml` library does not have a Vulnerability Disclosure Policy. But for ROS 2's purposes, see the policy defined in the Quality Declaration of the `libyaml_vendor` package.
+The `libyaml` library does not have a Vulnerability Disclosure Policy.
+But for ROS 2's purposes, see the policy defined in the Quality Declaration of the `libyaml_vendor` package.

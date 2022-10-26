@@ -112,10 +112,6 @@ endmacro()
 if(yaml_FOUND)
   if("${yaml_VERSION}" VERSION_EQUAL 0.2.5)
     set(_SKIP_YAML_BUILD 1)
-  else()
-    message(WARNING
-      "A wrong version of libyaml is already present in the system: ${yaml_VERSION}."
-      "It will be ignored and the 0.2.5 version will be built.")
   endif()
 endif()
 

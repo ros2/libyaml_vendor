@@ -2,8 +2,8 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.4.2 (2022-11-02)
+------------------
 * Remove a warning message. (`#51 <https://github.com/ros2/libyaml_vendor/issues/51>`_)
 * check if libyaml is already present before building it (take 2) (`#45 <https://github.com/ros2/libyaml_vendor/issues/45>`_)
 * Contributors: Chris Lalancette, Silvio Traversaro

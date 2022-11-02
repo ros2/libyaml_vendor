@@ -2,6 +2,12 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Remove a warning message. (`#51 <https://github.com/ros2/libyaml_vendor/issues/51>`_)
+* check if libyaml is already present before building it (take 2) (`#45 <https://github.com/ros2/libyaml_vendor/issues/45>`_)
+* Contributors: Chris Lalancette, Silvio Traversaro
+
 1.4.1 (2022-09-13)
 ------------------
 * Mirror rolling to master

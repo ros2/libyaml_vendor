@@ -7,13 +7,14 @@
   <version>1.4.2</version>
   <description>Vendored version of libyaml.</description>
 
-  <maintainer email="audrow@openrobotics.org">Audrow Nash</maintainer>
+  <maintainer email="scott@openrobotics.org">Scott K Logan</maintainer>
 
   <license>Apache License 2.0</license>  <!-- the contents of this package are Apache 2.0 -->
   <license>MIT</license>  <!-- libyaml is MIT -->
 
   <url type="website">https://github.com/yaml/libyaml</url>
 
+  <author email="audrow@openrobotics.org">Audrow Nash</author>
   <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
   <author>Mikael Arguedas</author>
 

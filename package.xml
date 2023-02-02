@@ -24,7 +24,9 @@
 
   <buildtool_export_depend>pkg-config</buildtool_export_depend>
 
-  <build_depend>libyaml</build_depend>
+  <build_depend>libyaml-dev</build_depend>
+
+  <build_export_depend>libyaml-dev</build_export_depend>
 
   <exec_depend>libyaml</exec_depend>
 

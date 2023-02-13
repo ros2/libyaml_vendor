@@ -2,6 +2,13 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix system package dependency (`#54 <https://github.com/ros2/libyaml_vendor/issues/54>`_)
+* Update libyaml_vendor to C++17. (`#55 <https://github.com/ros2/libyaml_vendor/issues/55>`_)
+* [rolling] Update maintainers - 2022-11-07 (`#53 <https://github.com/ros2/libyaml_vendor/issues/53>`_)
+* Contributors: Audrow Nash, Chris Lalancette, Scott K Logan
+
 1.4.2 (2022-11-02)
 ------------------
 * Remove a warning message. (`#51 <https://github.com/ros2/libyaml_vendor/issues/51>`_)

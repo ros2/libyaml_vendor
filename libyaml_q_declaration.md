@@ -20,7 +20,7 @@ It is also used in the [Go-yaml project](https://github.com/go-yaml/yaml), the p
 ROS 2 uses this library to load parameters from a file when the arguments are properly used. There are no official tests or code coverage information about this library, but in this case we are only interested in the portion of public API that reads YAML files and we will cover these
 tests and coverage in the vendored package. Including specific tests for the `libyaml` version imported by `libyaml_vendor` for the tier 1 platforms listed in [REP-2000](https://www.ros.org/reps/rep-2000.html#support-tiers).
 
-Considering the previously mentioned reasons, we consider this library to be robust and reliable and at Quality Level 3.
+Considering the previously mentioned reasons, we consider this library to be reliable and at Quality Level 3.
 
 # Comparison with ROS packages quality standards
 

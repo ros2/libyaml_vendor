@@ -77,9 +77,9 @@ macro(build_libyaml)
     endif()
   endif()
   include(ExternalProject)
-  externalproject_add(libyaml-0.2.5
+  externalproject_add(libyaml-0.2.2
     GIT_REPOSITORY https://github.com/yaml/libyaml.git
-    GIT_TAG 2c891fc7a770e8ba2fec34fc6b545c672beb37e6  # 0.2.5
+    GIT_TAG 690a781ef6af70ce6749d6e2be91743345123998  # 0.2.2
     GIT_CONFIG advice.detachedHead=false
     # Suppress git update due to https://gitlab.kitware.com/cmake/cmake/-/issues/16419
     # See https://github.com/ament/uncrustify_vendor/pull/22 for details
@@ -111,14 +111,17 @@ endmacro()
 
 # Skip building yaml if the expected version is already present in the system
 if(yaml_FOUND)
-  if("${yaml_VERSION}" VERSION_EQUAL 0.2.5)
+  if("${yaml_VERSION}" VERSION_EQUAL 0.2.2)
     set(_SKIP_YAML_BUILD 1)
+  # Build yaml if the system version is greater than 0.2.2
+  elseif("${yaml_VERSION}" VERSION_GREATER 0.2.2)
+    set(_SKIP_YAML_BUILD 0)
   endif()
 endif()
 
 if(NOT _SKIP_YAML_BUILD)
   build_libyaml()
-  set(extra_test_dependencies libyaml-0.2.5)
+  set(extra_test_dependencies libyaml-0.2.2)
 endif()
 
 ament_export_dependencies(yaml)

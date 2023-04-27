@@ -2,6 +2,9 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.6.0 (2023-04-27)
+------------------
+
 1.5.0 (2023-02-13)
 ------------------
 * Fix system package dependency (`#54 <https://github.com/ros2/libyaml_vendor/issues/54>`_)

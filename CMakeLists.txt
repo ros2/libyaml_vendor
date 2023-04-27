@@ -110,15 +110,8 @@ macro(build_libyaml)
 endmacro()
 
 # Skip building yaml if the expected version is already present in the system
-if(yaml_FOUND)
-  if("${yaml_VERSION}" VERSION_EQUAL 0.2.5)
-    set(_SKIP_YAML_BUILD 1)
-  endif()
-endif()
-
-if(NOT _SKIP_YAML_BUILD)
+if(NOT yaml_FOUND)
   build_libyaml()
-  set(extra_test_dependencies libyaml-0.2.5)
 endif()
 
 ament_export_dependencies(yaml)
@@ -142,37 +135,20 @@ if(BUILD_TESTING)
   get_target_property(ament_cmake_cppcheck_ADDITIONAL_INCLUDE_DIRS
     performance_test_fixture::performance_test_fixture INTERFACE_INCLUDE_DIRECTORIES)
 
-  if(${CMAKE_VERSION} VERSION_LESS "3.13")
-    link_directories(${yaml_LIBRARY_DIRS})
-  endif()
-
   ament_add_gtest(test_yaml_reader test/test_reader.cpp
-      WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
-  if(TARGET test_yaml_reader)
-    target_include_directories(test_yaml_reader PRIVATE ${yaml_INCLUDE_DIRS})
-    target_link_libraries(test_yaml_reader ${yaml_LIBRARIES})
-    if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.13")
-      target_link_directories(test_yaml_reader PRIVATE ${yaml_LIBRARY_DIRS})
-    endif()
-    ament_target_dependencies(test_yaml_reader rcpputils)
-    if(extra_test_dependencies)
-      add_dependencies(test_yaml_reader ${extra_test_dependencies})
-    endif()
-  endif()
+    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
+  target_link_libraries(test_yaml_reader
+    rcpputils::rcpputils
+    yaml
+  )
 
   add_performance_test(benchmark_reader test/benchmark/benchmark_reader.cpp
     WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
-  ament_target_dependencies(benchmark_reader rcpputils)
-  if(TARGET benchmark_reader)
-    target_include_directories(benchmark_reader PRIVATE ${yaml_INCLUDE_DIRS})
-    target_link_libraries(benchmark_reader ${yaml_LIBRARIES})
-    if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.13")
-      target_link_directories(benchmark_reader PRIVATE ${yaml_LIBRARY_DIRS})
-    endif()
-    if(extra_test_dependencies)
-      add_dependencies(benchmark_reader ${extra_test_dependencies})
-    endif()
-  endif()
+  target_link_libraries(benchmark_reader
+    performance_test_fixture::performance_test_fixture
+    rcpputils::rcpputils
+    yaml
+  )
 endif()
 
 install(DIRECTORY cmake DESTINATION share/${PROJECT_NAME})

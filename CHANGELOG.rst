@@ -2,6 +2,12 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Set to C++17. (`#59 <https://github.com/ros2/libyaml_vendor/issues/59>`_)
+* Switch to ament_cmake_vendor_package (`#58 <https://github.com/ros2/libyaml_vendor/issues/58>`_)
+* Contributors: Chris Lalancette, Scott K Logan
+
 1.6.0 (2023-04-27)
 ------------------
 

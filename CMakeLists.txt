@@ -47,7 +47,6 @@ if(BUILD_TESTING)
   ament_lint_cmake("--filter=-convention/filename,-package/stdargs")
 
   find_package(ament_cmake_gtest REQUIRED)
-  find_package(rcpputils REQUIRED)
   find_package(performance_test_fixture REQUIRED)
   # Give cppcheck hints about macro definitions coming from outside this package
   get_target_property(ament_cmake_cppcheck_ADDITIONAL_INCLUDE_DIRS
@@ -57,14 +56,12 @@ if(BUILD_TESTING)
       WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
   if(TARGET test_yaml_reader)
     target_link_libraries(test_yaml_reader yaml_library)
-    ament_target_dependencies(test_yaml_reader rcpputils)
   endif()
 
   add_performance_test(benchmark_reader test/benchmark/benchmark_reader.cpp
     WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
   if(TARGET benchmark_reader)
     target_link_libraries(benchmark_reader yaml_library)
-    ament_target_dependencies(benchmark_reader rcpputils)
   endif()
 endif()
 

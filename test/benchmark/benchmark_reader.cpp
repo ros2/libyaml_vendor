@@ -18,9 +18,8 @@
 
 #include <yaml.h>
 
+#include <filesystem>
 #include <string>
-
-#include "rcpputils/filesystem_helper.hpp"
 
 #include "performance_test_fixture/performance_test_fixture.hpp"
 
@@ -52,7 +51,8 @@ BENCHMARK_F(PerformanceTest, yaml_parser_set_input_string)(benchmark::State & st
 BENCHMARK_F(PerformanceTest, yaml_parser_set_input_file)(benchmark::State & st)
 {
   std::string path =
-    (rcpputils::fs::current_path() / "test" / "benchmark" / "benchmark_params.yaml").string();
+    (std::filesystem::current_path() / "test" / "benchmark" /
+    "benchmark_params.yaml").generic_string();
 
   yaml_parser_t parser;
   FILE * pFile;
@@ -73,7 +73,8 @@ BENCHMARK_F(PerformanceTest, yaml_parser_set_input_file)(benchmark::State & st)
 BENCHMARK_F(PerformanceTest, yaml_parser_set_input_file_event)(benchmark::State & st)
 {
   std::string path =
-    (rcpputils::fs::current_path() / "test" / "benchmark" / "benchmark_params.yaml").string();
+    (std::filesystem::current_path() / "test" / "benchmark" /
+    "benchmark_params.yaml").generic_string();
 
   yaml_parser_t parser;
   FILE * pFile;

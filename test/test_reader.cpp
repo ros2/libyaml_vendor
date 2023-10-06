@@ -20,15 +20,14 @@
 #include <gtest/gtest.h>
 #include <yaml.h>
 
+#include <filesystem>
 #include <string>
-
-#include "rcpputils/filesystem_helper.hpp"
-#include "rcutils/filesystem.h"
 
 TEST(test_libyaml, yaml_read_file)
 {
   std::string path =
-    (rcpputils::fs::current_path() / "test" / "benchmark" / "benchmark_params.yaml").string();
+    (std::filesystem::current_path() / "test" / "benchmark" /
+    "benchmark_params.yaml").generic_string();
 
   yaml_parser_t parser;
   yaml_event_t event;
@@ -46,7 +45,8 @@ TEST(test_libyaml, yaml_read_file)
 TEST(test_libyaml, yaml_read_file_fails)
 {
   std::string path =
-    (rcpputils::fs::current_path() / "test" / "benchmark" / "benchmark_params.yaml").string();
+    (std::filesystem::current_path() / "test" / "benchmark" /
+    "benchmark_params.yaml").generic_string();
 
   yaml_parser_t parser;
   yaml_event_t event;

@@ -2,6 +2,11 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* remove rcpputils and rcutils dependency (`#61 <https://github.com/ros2/libyaml_vendor/issues/61>`_)
+* Contributors: Kenta Yonekura
+
 1.6.1 (2023-07-11)
 ------------------
 * Set to C++17. (`#59 <https://github.com/ros2/libyaml_vendor/issues/59>`_)

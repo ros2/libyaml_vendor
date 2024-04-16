@@ -2,6 +2,11 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.6.3 (2024-04-16)
+------------------
+* Update quality declaration documents (`#62 <https://github.com/ros2/libyaml_vendor/issues/62>`_)
+* Contributors: Christophe Bedard
+
 1.6.2 (2023-10-09)
 ------------------
 * remove rcpputils and rcutils dependency (`#61 <https://github.com/ros2/libyaml_vendor/issues/61>`_)

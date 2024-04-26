@@ -2,6 +2,9 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 1.6.3 (2024-04-16)
 ------------------
 * Update quality declaration documents (`#62 <https://github.com/ros2/libyaml_vendor/issues/62>`_)

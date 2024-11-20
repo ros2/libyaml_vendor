@@ -2,6 +2,11 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Only set CRT_SECURE_NO_WARNINGS if it hasn't already been set. (`#64 <https://github.com/ros2/libyaml_vendor/issues/64>`_)
+* Contributors: Chris Lalancette
+
 1.7.0 (2024-04-26)
 ------------------
 

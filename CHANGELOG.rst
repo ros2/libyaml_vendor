@@ -2,6 +2,11 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.8.0 (2025-04-25)
+------------------
+* Remove CODEOWNERS and mirror-rolling-to-master workflow. (`#65 <https://github.com/ros2/libyaml_vendor/issues/65>`_)
+* Contributors: Chris Lalancette
+
 1.7.1 (2024-11-20)
 ------------------
 * Only set CRT_SECURE_NO_WARNINGS if it hasn't already been set. (`#64 <https://github.com/ros2/libyaml_vendor/issues/64>`_)

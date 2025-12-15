@@ -12,6 +12,8 @@
   <license>Apache License 2.0</license>  <!-- the contents of this package are Apache 2.0 -->
   <license>MIT</license>  <!-- libyaml is MIT -->
 
+  <url type="website">https://github.com/yaml/libyaml</url>
+
   <author email="audrow@openrobotics.org">Audrow Nash</author>
   <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
   <author>Mikael Arguedas</author>

@@ -5,21 +5,17 @@
 <package format="2">
   <name>libyaml_vendor</name>
   <version>1.8.0</version>
-  <description>Vendored version of libyaml.</description>
+  <description>Exports a custom CMake module to find libyaml.</description>
 
-  <maintainer email="scott@openrobotics.org">Scott K Logan</maintainer>
+  <maintainer email="alejandro@openrobotics.org">Alejandro Hernandez</maintainer>
 
   <license>Apache License 2.0</license>  <!-- the contents of this package are Apache 2.0 -->
   <license>MIT</license>  <!-- libyaml is MIT -->
 
-  <url type="website">https://github.com/yaml/libyaml</url>
-
-  <author email="audrow@openrobotics.org">Audrow Nash</author>
+  <author email="alejandro@openrobotics.org">Alejandro Hernandez</author>
   <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
-  <author>Mikael Arguedas</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
-  <buildtool_depend>ament_cmake_vendor_package</buildtool_depend>
   <buildtool_depend>pkg-config</buildtool_depend>
 
   <buildtool_export_depend>pkg-config</buildtool_export_depend>
@@ -28,11 +24,10 @@
 
   <build_export_depend>libyaml-dev</build_export_depend>
 
-  <exec_depend>libyaml</exec_depend>
-
   <test_depend>ament_cmake_gtest</test_depend>
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
+  <test_depend>libyaml-dev</test_depend>
   <test_depend>performance_test_fixture</test_depend>
 
   <export>

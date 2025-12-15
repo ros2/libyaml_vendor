@@ -12,8 +12,9 @@
   <license>Apache License 2.0</license>  <!-- the contents of this package are Apache 2.0 -->
   <license>MIT</license>  <!-- libyaml is MIT -->
 
-  <author email="alejandro@openrobotics.org">Alejandro Hernandez</author>
+  <author email="audrow@openrobotics.org">Audrow Nash</author>
   <author email="michel@ekumenlabs.com">Michel Hidalgo</author>
+  <author>Mikael Arguedas</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <buildtool_depend>pkg-config</buildtool_depend>

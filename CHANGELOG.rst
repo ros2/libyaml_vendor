@@ -2,6 +2,13 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.8.1 (2026-04-14)
+------------------
+
+* Replace ament_vendor with cmake module (`#67 <https://github.com/ros2/libyaml_vendor/issues/67>`_)
+
+* Contributors: Alejandro Hernández Cordero
+
 1.8.0 (2025-04-25)
 ------------------
 * Remove CODEOWNERS and mirror-rolling-to-master workflow. (`#65 <https://github.com/ros2/libyaml_vendor/issues/65>`_)

@@ -4,7 +4,7 @@
   schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
   <name>libyaml_vendor</name>
-  <version>1.8.1</version>
+  <version>1.9.0</version>
   <description>Exports a custom CMake module to find libyaml.</description>
 
   <maintainer email="alejandro@openrobotics.org">Alejandro Hernandez</maintainer>

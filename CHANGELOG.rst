@@ -2,8 +2,8 @@
 Changelog for package libyaml_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.6.4 (2026-06-02)
+------------------
 * Remove CODEOWNERS and mirror-rolling-to-master workflow. (`#65 <https://github.com/ros2/libyaml_vendor/issues/65>`_) (`#66 <https://github.com/ros2/libyaml_vendor/issues/66>`_)
   They are both outdated, and both no longer serving their
   intended purpose.

@@ -1,12 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 project(libyaml_vendor)
 
-# Default to C++20
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 20)
-  set(CMAKE_CXX_STANDARD_REQUIRED ON)
-endif()
-
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
@@ -15,6 +9,7 @@ find_package(ament_cmake REQUIRED)
 
 if(BUILD_TESTING)
   list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules)
+  find_package(ament_cmake_ros_core REQUIRED)
   find_package(yaml REQUIRED)
 
   # We need to install a Findyaml.cmake file that does not respect
@@ -37,13 +32,17 @@ if(BUILD_TESTING)
   ament_add_gtest(test_yaml_reader test/test_reader.cpp
       WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
   if(TARGET test_yaml_reader)
-    target_link_libraries(test_yaml_reader yaml)
+    target_link_libraries(test_yaml_reader
+      yaml
+      ament_cmake_ros_core::ament_ros_cxx_standard)
   endif()
 
   add_performance_test(benchmark_reader test/benchmark/benchmark_reader.cpp
     WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
   if(TARGET benchmark_reader)
-    target_link_libraries(benchmark_reader yaml)
+    target_link_libraries(benchmark_reader
+      yaml
+      ament_cmake_ros_core::ament_ros_cxx_standard)
   endif()
 endif()
 

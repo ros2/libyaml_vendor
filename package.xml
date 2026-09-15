@@ -9,7 +9,7 @@
 
   <maintainer email="alejandro@openrobotics.org">Alejandro Hernandez</maintainer>
 
-  <license>Apache License 2.0</license>  <!-- the contents of this package are Apache 2.0 -->
+  <license>Apache-2.0</license>  <!-- the contents of this package are Apache 2.0 -->
   <license>MIT</license>  <!-- libyaml is MIT -->
 
   <url type="website">https://github.com/yaml/libyaml</url>
